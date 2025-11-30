@@ -1,0 +1,130 @@
+/* Disable focus outline for ALL inputs, buttons, selects */
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Full page background */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f3f5f7;
+}
+
+/* White box card */
+.login-card {
+    width: 420px;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* Logo heading */
+.logo h2 {
+    color: #2e7d32;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.logo .cow-icon {
+    font-size: 40px;
+    color: #2e7d32;
+}
+
+.logo p {
+    margin: 2px 0;
+}
+
+.subtext {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+/* Input Box */
+.input-group {
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    background: #f0f2f5;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 5px;
+}
+
+.input-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    margin-left: 8px;
+    font-size: 15px;
+}
+
+.eye-icon {
+    cursor: pointer;
+}
+
+/* Input, Select styling */
+input, select, textarea {
+    border: 1px solid #ccc !important;
+    border-radius: 6px;
+    padding: 10px;
+    outline: none !important;
+    transition: 0.2s ease;
+}
+
+/* Smooth green highlight on focus */
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #2e7d32 !important;
+    box-shadow: 0 0 4px rgba(46, 125, 50, 0.4);
+}
+
+/* Login Button */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #2e7d32;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background: #256428;
+}
+
+/* Remove outline on button click */
+.login-btn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.demo-info {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #444;
+}

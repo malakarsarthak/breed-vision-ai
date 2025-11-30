@@ -1,0 +1,234 @@
+{
+    "buffalo": {
+        "Bani": {
+            "milk_yield": "Average ~2,857 kg per lactation (range ~1,095–6,054 kg) with fat ~6.65% and daily yield ~12-19 litres under good conditions",
+            "body_weight_male": "Approximately 525–562 kg (adult)",
+            "body_weight_female": "Approximately 475–575 kg (adult)",
+            "special_features": "Well-adapted to arid grazing land, tolerant to drought and extreme heat, with unique tightly coiled horns and strong grazing stamina"
+        },
+        "Bhadawari": {
+            "milk_yield": "Average ~1,294 kg per lactation (range ~540-1,400 kg), with fat content ~6-12.8% (average ~7.9%)",
+            "body_weight_male": "Approximately 475 kg (mature bull)",
+            "body_weight_female": "Approximately 425 kg (mature cow)",
+            "special_features": "Good adaptation to ravines and coarse fodder; distinct copper-brown colour with two white lines on lower neck; known for high butter-fat milk rather than high volume"
+        },
+        "Jaffarabadi": {
+            "milk_yield": "Average ~2,239 kg per lactation (~305 days) with butterfat ~7.7%",
+            "body_weight_male": "Up to ~700 kg (adult)",
+            "body_weight_female": "Around ~620 kg (adult)",
+            "special_features": "Heaviest Indian buffalo breed, large heavy horns drooping sideways then curving up, very efficient roughage converter, native to Saurashtra region of Gujarat"
+        },
+        "Mehsana": {
+            "milk_yield": "Average ~1,988 kg per lactation (range ~598-3,597 kg) with fat ~6.8% (range ~5.2-9.5%)",
+            "body_weight_male": "Approximately 570 kg (adult)",
+            "body_weight_female": "Approximately 430 kg (adult)",
+            "special_features": "Evolved from crosses of Murrah buffalo and Surti buffalo; jet-black coat, sickle-shaped horns curving upward, good lactation persistency and regular breeding"
+        },
+        "Murrah": {
+            "milk_yield": "Average ~1,752 kg per lactation (range ~1,003–2,057 kg) with fat ~7.3% according to one source; under good management can yield ~15-20 litres/day at peak. :contentReference[oaicite:0]{index=0}",
+            "body_weight_male": "Approximately 550 kg (adult bull) under typical conditions. :contentReference[oaicite:1]{index=1}",
+            "body_weight_female": "Approximately 450 kg (adult cow) under typical conditions. :contentReference[oaicite:2]{index=2}",
+            "special_features": "Jet-black colour (sometimes with white markings), short tightly curved horns, high milk fat content, excellent global reputation for dairying. :contentReference[oaicite:3]{index=3}"
+        },
+        "Nili Ravi": {
+            "milk_yield": "Approximately 1,800-2,300 kg per lactation (305 days corrected mean ~2,247 kg) with fat ~6.8%-7%. :contentReference[oaicite:0]{index=0}",
+            "body_weight_male": "Around ~700-800 kg (mature bull) under good conditions. :contentReference[oaicite:1]{index=1}",
+            "body_weight_female": "Around ~525-600 kg (mature cow) under good conditions. :contentReference[oaicite:2]{index=2}",
+            "special_features": "Black (sometimes brown) coat often with white markings on forehead, face, muzzle, legs and tail (called “Panch Kalyani”); tightly-curled horns; one of the premier milch river-type buffalo breeds from the Punjab region. :contentReference[oaicite:3]{index=3}"
+        },
+        "Surti": {
+            "milk_yield": "Varies by management; typically medium to high",
+            "body_weight_male": "Approx. 400-600 kg",
+            "body_weight_female": "Approx. 250-400 kg",
+            "special_features": "Known for regional adaptability and distinct physical traits"
+        },
+        "Toda": {
+            "milk_yield": "Around ~500 kg per lactation, average fat ~8.2%-8.7%",
+            "body_weight_male": "Up to ~700 kg (reported) under native conditions",
+            "body_weight_female": "Up to ~620 kg (reported) under native conditions",
+            "special_features": "Small, indigenous to Nilgiri Hills (Tamil Nadu), ash-grey/fawn coat, long outward-curving horns, used in tribal rituals and agriculture work"
+        }
+    },
+    "cattle": {
+        "Alambadi": {
+            "milk_yield": "≈ 432 kg per lactation (average): daily ~2.6 kg, lactation length ~171 days",
+            "body_weight_male": "≈ 294 kg (adult bull)",
+            "body_weight_female": "≈ 312 kg (adult cow)",
+            "special_features": "Indigenous draught cattle of Tamil Nadu (hilly tract of Dharmapuri/Krishnagiri); iron-grey coat with white patches; good endurance under harsh grazing conditions"
+        },
+        "Amritmahal": {
+            "milk_yield": "Low to medium; usually 500–600 kg per lactation",
+            "body_weight_male": "About 500–600 kg (adult bull)",
+            "body_weight_female": "About 340–380 kg (adult cow)",
+            "special_features": "Famous Mysore draught breed with high endurance, narrow face, long horns, and strong pulling power; well suited for dry regions"
+        },
+        "Ayrshire": {
+            "milk_yield": "Typically 5,000–7,000 litres per lactation (305 days), good fat and protein levels",
+            "body_weight_male": "Around 700–800 kg (adult bull)",
+            "body_weight_female": "Around 450–550 kg (adult cow)",
+            "special_features": "Hardy dairy breed from Scotland, red-and-white coat, good grazing ability, strong feet and legs, suited for both cold and warm climates"
+        },
+        "Bargur": {
+            "milk_yield": "About 350 kg per lactation (range approx. 250-1,300 kg) under native conditions",
+            "body_weight_male": "Approximately 300-340 kg (mature bull under native conditions)",
+            "body_weight_female": "Approximately 250-295 kg (mature cow under native conditions)",
+            "special_features": "Compact hill-draught breed native to the Bargur Hills (Tamil Nadu); reddish-brown with white patches, well adapted to rugged terrain, known for endurance and trotting ability"
+        },
+        "Brown Swiss": {
+            "milk_yield": "Usually 6,000–9,000 litres per lactation (305 days) with fat around 4% and protein around 3.5%",
+            "body_weight_male": "Around 900–1,300 kg (adult bull)",
+            "body_weight_female": "Around 550–700 kg (adult cow)",
+            "special_features": "Strong, hardy dairy breed from Switzerland; known for quiet temperament, good grazing ability, strong legs and hooves, and high protein-to-fat ratio in milk"
+        },
+        "Dangi": {
+            "milk_yield": "Approximately 430 kg per lactation on average (range ~175-800 kg) with average fat around 4.3% :contentReference[oaicite:0]{index=0}",
+            "body_weight_male": "Data less well-documented; medium size, bulls estimated at around 450-550 kg mature weight",
+            "body_weight_female": "Again not well documented; cows likely in the range of ~300-400 kg under native conditions",
+            "special_features": "White coat with irregular red or black spots, short thick horns, skin secretes an oily substance that helps cope with heavy rainfall/hilly terrain; well adapted draft breed in heavy-rainfall rice-field and forest hill zones of western India :contentReference[oaicite:1]{index=1}"
+        },
+        "Deoni": {
+            "milk_yield": "Average ~868 kg per lactation (range ~638–1,229 kg) with fat ~4.3% in typical field conditions. :contentReference[oaicite:0]{index=0}",
+            "body_weight_male": "Reported mature bulls ~590 kg, height ~135-140 cm. :contentReference[oaicite:1]{index=1}",
+            "body_weight_female": "Mature cows approx. ~286 kg (based on measured sample) under field conditions. :contentReference[oaicite:2]{index=2}",
+            "special_features": "Dual-purpose breed (milk + draught) from Maharashtra/Karnataka drought-prone zones; three colour strains (Balankya, Wannera, Shevera); hardy and adapted to dry lands. :contentReference[oaicite:3]{index=3}"
+        },
+        "Gir": {
+            "milk_yield": "Average ~2,063 litres per lactation (326 days) with ~4.7-5% fat. :contentReference[oaicite:0]{index=0}",
+            "body_weight_male": "Approximately ~544 kg (adult bull). :contentReference[oaicite:1]{index=1}",
+            "body_weight_female": "Approximately ~310 kg (adult cow). :contentReference[oaicite:2]{index=2}",
+            "special_features": "Milch breed from Gujarat, very heat-tolerant, resilient under tropical stress, distinct convex forehead and long pendulous ears. :contentReference[oaicite:3]{index=3}"
+        },
+        "Guernsey": {
+            "milk_yield": "Around ~6,000 kg per lactation (305 days) with butter-fat about ~5% and protein ~3.7% in typical conditions. :contentReference[oaicite:0]{index=0}",
+            "body_weight_male": "About ~600-700 kg for mature bulls. :contentReference[oaicite:1]{index=1}",
+            "body_weight_female": "About ~450-500 kg for mature cows. :contentReference[oaicite:2]{index=2}",
+            "special_features": "Medium-sized dairy breed from the Channel Island of Guernsey, known for golden-tinged milk rich in β-carotene, efficient feed-to-milk conversion and ease of calving. :contentReference[oaicite:3]{index=3}"
+        },
+        "Hallikar": {
+            "milk_yield": "Generally low; about 540–700 kg per lactation under native conditions.",
+            "body_weight_male": "Around 340–380 kg for mature bulls.",
+            "body_weight_female": "Around 225–275 kg for mature cows.",
+            "special_features": "Famous draught breed from Karnataka, very strong and fast, long sweeping horns, excellent endurance for ploughing and cart work."
+        },
+        "Hariana": {
+            "milk_yield": "About 1,600–2,000 kg per lactation with fat around 4–5%.",
+            "body_weight_male": "Around 430–500 kg for mature bulls.",
+            "body_weight_female": "Around 300–350 kg for mature cows.",
+            "special_features": "Dual-purpose North Indian breed known for good draught strength, heat tolerance, and disease resistance."
+        },
+        "Holstein Friesian": {
+            "milk_yield": "Usually 7,000–12,000 litres per lactation (305 days) under good management; fat around 3.6–4%.",
+            "body_weight_male": "Around 900–1,100 kg for mature bulls.",
+            "body_weight_female": "Around 580–700 kg for mature cows.",
+            "special_features": "World’s highest milk-producing dairy breed; black-and-white coat, large frame, strong udder capacity, widely used for commercial dairy farming."
+        },
+        "Jersey": {
+            "milk_yield": "Typically 4,000–6,000 litres per lactation (305 days) with high butter-fat around 4.8–5.5%.",
+            "body_weight_male": "Around 600–700 kg for mature bulls.",
+            "body_weight_female": "Around 350–450 kg for mature cows.",
+            "special_features": "Small, efficient dairy breed known for rich milk, easy calving, heat tolerance, and strong feed-to-milk conversion."
+        },
+        "Kangayam": {
+            "milk_yield": "Low; usually around 540–700 kg per lactation under native conditions.",
+            "body_weight_male": "Around 400–500 kg for mature bulls.",
+            "body_weight_female": "Around 300–350 kg for mature cows.",
+            "special_features": "Strong draught breed from Tamil Nadu, silver-grey coat, sturdy build, excellent for carting and ploughing, very hardy in dry regions."
+        },
+        "Kankrej": {
+            "milk_yield": "Around 1,700–2,500 kg per lactation with fat about 4–5%.",
+            "body_weight_male": "Around 500–575 kg for mature bulls.",
+            "body_weight_female": "Around 325–400 kg for mature cows.",
+            "special_features": "Large dual-purpose breed from Gujarat–Rajasthan; lyre-shaped horns, strong draught ability, heat-tolerant, and known for good endurance."
+        },
+        "Kasargod": {
+            "milk_yield": "Low; usually around 400–500 kg per lactation under native conditions.",
+            "body_weight_male": "Around 250–300 kg for mature bulls.",
+            "body_weight_female": "Around 150–200 kg for mature cows.",
+            "special_features": "Small indigenous breed from Kerala; hardy, survives on poor feed, good disease resistance, and well suited for hilly, humid coastal regions."
+        },
+        "Kenkatha": {
+            "milk_yield": "Low; generally around 500–600 kg per lactation under native conditions.",
+            "body_weight_male": "Around 350–400 kg for mature bulls.",
+            "body_weight_female": "Around 250–300 kg for mature cows.",
+            "special_features": "Hardy draught breed from Uttar Pradesh–Madhya Pradesh border region; compact body, strong legs, well suited for dry and rocky terrain."
+        },
+        "Khillari": {
+            "milk_yield": "Low; usually around 450–500 kg per lactation under native conditions.",
+            "body_weight_male": "Around 430–500 kg for mature bulls.",
+            "body_weight_female": "Around 270–320 kg for mature cows.",
+            "special_features": "Well-known draught breed from Maharashtra and Karnataka; compact muscular build, long backward-curving horns, excellent stamina and suited for dry, harsh terrain."
+        },
+        "Krishna Valley": {
+            "milk_yield": "Medium; usually around 900–1,200 kg per lactation under field conditions.",
+            "body_weight_male": "Around 550–650 kg for mature bulls.",
+            "body_weight_female": "Around 325–400 kg for mature cows.",
+            "special_features": "Large, powerful draught breed from Karnataka–Maharashtra region; grey coat, massive frame, strong yoke power, suited for heavy agricultural work."
+        },
+        "Nagori": {
+            "milk_yield": "Low; generally around 500–600 kg per lactation under native conditions.",
+            "body_weight_male": "Around 450–500 kg for mature bulls.",
+            "body_weight_female": "Around 275–325 kg for mature cows.",
+            "special_features": "Fast, strong draught breed from Rajasthan; light grey to white coat, long legs, excellent for carting and field work, very hardy in hot desert climate."
+        },
+        "Nimari": {
+            "milk_yield": "Low to medium; usually around 600–800 kg per lactation under native conditions.",
+            "body_weight_male": "Around 420–500 kg for mature bulls.",
+            "body_weight_female": "Around 300–350 kg for mature cows.",
+            "special_features": "Indigenous breed from Madhya Pradesh; red or red-spotted coat, good draught ability, hardy and well suited to hot, dry regions."
+        },
+        "Ongole": {
+            "milk_yield": "Medium; usually around 1,000–1,500 litres per lactation with fat about 4–5%.",
+            "body_weight_male": "Around 500–600 kg for mature bulls.",
+            "body_weight_female": "Around 350–450 kg for mature cows.",
+            "special_features": "Large, strong breed from Andhra Pradesh; known for disease resistance, heat tolerance, prominent hump, and used for both draught work and breeding (exported globally)."
+        },
+        "Pulikulam": {
+            "milk_yield": "Low; usually around 400–500 kg per lactation under native conditions.",
+            "body_weight_male": "Around 300–400 kg for mature bulls.",
+            "body_weight_female": "Around 200–250 kg for mature cows.",
+            "special_features": "Indigenous draught and multipurpose breed from Tamil Nadu; known for agility, drought tolerance, strong survival ability, and commonly used in traditional Jallikattu."
+        },
+        "Rathi": {
+            "milk_yield": "Usually around 1,560–2,000 litres per lactation with fat about 4.3–5%.",
+            "body_weight_male": "Around 450–500 kg for mature bulls.",
+            "body_weight_female": "Around 280–350 kg for mature cows.",
+            "special_features": "Milch breed from Rajasthan; good heat tolerance, calm temperament, regular breeder, and efficient milk producer even in arid conditions."
+        },
+        "Red Dane": {
+            "milk_yield": "Typically around 5,000–6,000 litres per lactation (305 days) with fat about 4–4.5%.",
+            "body_weight_male": "Around 750–900 kg for mature bulls.",
+            "body_weight_female": "Around 500–600 kg for mature cows.",
+            "special_features": "Dairy breed developed from Danish Red cattle; known for good milk solids, calm nature, strong build, and good fertility."
+        },
+        "Red Sindhi": {
+            "milk_yield": "Usually around 1,700–2,300 litres per lactation with fat about 4.5–5.5%.",
+            "body_weight_male": "Around 500–550 kg for mature bulls.",
+            "body_weight_female": "Around 300–350 kg for mature cows.",
+            "special_features": "Popular milch breed from Pakistan–India region; copper-red coat, high heat tolerance, disease resistance, and good milk production even in harsh climates."
+        },
+        "Sahiwal": {
+            "milk_yield": "Usually around 2,000–3,000 litres per lactation with fat about 4.5–5%.",
+            "body_weight_male": "Around 500–600 kg for mature bulls.",
+            "body_weight_female": "Around 325–400 kg for mature cows.",
+            "special_features": "One of the best tropical dairy breeds; very heat tolerant, disease resistant, calm temperament, and high lactation persistence."
+        },
+        "Tharparkar": {
+            "milk_yield": "Usually around 1,800–2,600 litres per lactation with fat about 4–5%.",
+            "body_weight_male": "Around 400–500 kg for mature bulls.",
+            "body_weight_female": "Around 300–380 kg for mature cows.",
+            "special_features": "Dual-purpose breed from Rajasthan; white to light grey coat, very hardy, drought tolerant, and well adapted to arid desert conditions."
+        },
+        "Umblachery": {
+            "milk_yield": "Usually around 600–800 kg per lactation under native conditions.",
+            "body_weight_male": "Around 300–350 kg for mature bulls.",
+            "body_weight_female": "Around 250–300 kg for mature cows.",
+            "special_features": "Indigenous draught breed from Tamil Nadu; compact body, dark grey to black coat, strong for ploughing and carting, and well adapted to humid coastal regions."
+        },
+        "Vechur": {
+            "milk_yield": "Usually around 400–500 litres per lactation with fat about 5–6%.",
+            "body_weight_male": "Around 130–150 kg for mature bulls.",
+            "body_weight_female": "Around 90–120 kg for mature cows.",
+            "special_features": "Smallest cattle breed in the world; extremely low maintenance, heat tolerant, resistant to many diseases, and produces highly nutritious milk."
+        }
+    }
+}
