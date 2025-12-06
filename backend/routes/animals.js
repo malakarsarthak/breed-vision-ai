@@ -81,4 +81,40 @@ router.get("/stats/daily", async (req, res) => {
     });
 });
 
+// ✅ DELETE SINGLE ANIMAL
+router.delete("/:id", async (req, res) => {
+    try {
+        const deleted = await animalSchema.findByIdAndDelete(req.params.id);
+
+        if (!deleted) {
+            return res.status(404).json({ error: "Record not found" });
+        }
+
+        res.json({ success: true, message: "Record deleted" });
+
+    } catch (err) {
+        console.error("Delete error:", err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// ✅ DELETE MULTIPLE ANIMALS
+router.post("/delete-multiple", async (req, res) => {
+    try {
+        const { ids } = req.body;
+
+        if (!ids || !ids.length) {
+            return res.status(400).json({ error: "No records selected" });
+        }
+
+        await animalSchema.deleteMany({ _id: { $in: ids } });
+
+        res.json({ success: true, message: "Multiple records deleted" });
+
+    } catch (err) {
+        console.error("Bulk delete error:", err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
 module.exports = router;

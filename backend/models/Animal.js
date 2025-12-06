@@ -2,14 +2,22 @@ const mongoose = require("mongoose");
 
 const animalSchema = new mongoose.Schema(
     {
+        /* Basic Animal Details */
         tagId: {
             type: String,
             required: true,
             unique: true
         },
 
-        ownerName: { type: String, required: true },
-        ownerPhone: { type: String, required: true },
+        ownerName: {
+            type: String,
+            required: true
+        },
+
+        ownerPhone: {
+            type: String,
+            required: true
+        },
 
         animalType: {
             type: String,
@@ -38,30 +46,43 @@ const animalSchema = new mongoose.Schema(
             required: true
         },
 
-        imageUrl: { type: String },
+        /* Image stored in Cloud / Local path */
+        imageUrl: {
+            type: String,
+            default: ""
+        },
 
+        /* AI Predictions stored for history */
         aiPredictions: [
             {
-                breed: String,
-                confidence: Number,
-                modelVersion: String
+                breed: { type: String },
+                confidence: { type: Number },
+                modelVersion: { type: String }
             }
         ],
 
+        /* FLW userId who registered the animal */
         registeredBy: {
-            type: String,      // stores FLW userId (example: flw001)
-            required: true
+            type: String,
+            required: true   // MUST be in payload: registeredBy: userId
         },
 
-        bpaSubmitted: { type: Boolean, default: false },
+        /* Whether BPA form submitted */
+        bpaSubmitted: {
+            type: Boolean,
+            default: false
+        },
 
+        /* Status by Admin */
         status: {
             type: String,
             enum: ["pending", "verified", "rejected"],
             default: "pending"
         }
     },
-    { timestamps: true }
+    {
+        timestamps: true   // createdAt & updatedAt automatically included
+    }
 );
 
 module.exports = mongoose.model("Animal", animalSchema);

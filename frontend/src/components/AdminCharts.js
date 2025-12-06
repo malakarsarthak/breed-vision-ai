@@ -5,15 +5,18 @@ import {
     LineChart, Line, CartesianGrid
 } from "recharts";
 
+import { Typography, Box } from "@mui/material";
+
 const COLORS = ['#2e7d32', '#ff9800', '#1976d2', '#9c27b0', '#f44336', '#795548'];
 
 export default function AdminCharts() {
+
     const [districtData, setDistrictData] = useState([]);
     const [breedData, setBreedData] = useState([]);
     const [dailyData, setDailyData] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const base = process.env.REACT_APP_API_BASE_URL || "http://localhost:3001/api";
+    const base = process.env.REACT_APP_API_BASE_URL || "http://10.113.72.31:3001/api";
 
     useEffect(() => {
         loadCharts();
@@ -38,27 +41,33 @@ export default function AdminCharts() {
     };
 
     return (
-        <div style={{ padding: "30px" }}>
-            <h2 style={{ color: "#2e7d32", marginBottom: 25 }}>📊 Registration Analytics</h2>
+        <Box sx={{ p: { xs: 2, md: 4 } }}>
 
-            {loading && <p>Loading charts...</p>}
+            {/* ✅ PAGE TITLE */}
+            <Typography
+                variant="h4"
+                sx={{ color: "#2e7d32", fontWeight: "700", mb: 3 }}
+            >
+                📊 Registration Analytics
+            </Typography>
 
-            {/* Row 1: District + Breed */}
-            <div style={{
-                display: "flex",
-                gap: 20,
-                marginBottom: 20
-            }}>
-                {/* District Chart */}
-                <div style={{
-                    flex: 1,
-                    background: "#ffffff",
-                    padding: 20,
-                    borderRadius: 12,
-                    boxShadow: "0 4px 12px rgba(0,0,0,0.08)"
-                }}>
-                    <h4>Registrations by Location</h4>
-                    <ResponsiveContainer width="100%" height={300}>
+            {loading && (
+                <Typography sx={{ fontStyle: "italic" }}>Loading charts...</Typography>
+            )}
+
+            {/* ✅ TOP ROW: BAR + PIE */}
+            <Box
+                sx={{
+                    display: "grid",
+                    gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
+                    gap: 2,
+                    mb: 2
+                }}
+            >
+
+                {/* ✅ LOCATION CHART */}
+                <ChartCard title="Registrations by Location">
+                    <ResponsiveContainer width="100%" height={260}>
                         <BarChart data={districtData}>
                             <XAxis dataKey="location" />
                             <YAxis />
@@ -66,20 +75,19 @@ export default function AdminCharts() {
                             <Bar dataKey="count" fill="#2e7d32" />
                         </BarChart>
                     </ResponsiveContainer>
-                </div>
+                </ChartCard>
 
-                {/* Breed Pie Chart */}
-                <div style={{
-                    flex: 1,
-                    background: "#ffffff",
-                    padding: 20,
-                    borderRadius: 12,
-                    boxShadow: "0 4px 12px rgba(0,0,0,0.08)"
-                }}>
-                    <h4>Breed Distribution</h4>
-                    <ResponsiveContainer width="100%" height={300}>
+                {/* ✅ BREED PIE */}
+                <ChartCard title="Breed Distribution">
+                    <ResponsiveContainer width="100%" height={260}>
                         <PieChart>
-                            <Pie data={breedData} dataKey="count" nameKey="breed" outerRadius={110} label>
+                            <Pie
+                                data={breedData}
+                                dataKey="count"
+                                nameKey="breed"
+                                outerRadius={90}
+                                label
+                            >
                                 {breedData.map((_, i) => (
                                     <Cell key={i} fill={COLORS[i % COLORS.length]} />
                                 ))}
@@ -88,27 +96,57 @@ export default function AdminCharts() {
                             <Legend />
                         </PieChart>
                     </ResponsiveContainer>
-                </div>
-            </div>
+                </ChartCard>
+            </Box>
 
-            {/* Row 2: Daily Line Chart */}
-            <div style={{
-                background: "#ffffff",
-                padding: 20,
-                borderRadius: 12,
-                boxShadow: "0 4px 12px rgba(0,0,0,0.08)"
-            }}>
-                <h4>Daily Registrations (last 30 days)</h4>
-                <ResponsiveContainer width="100%" height={300}>
+            {/* ✅ LINE CHART */}
+            <ChartCard title="Daily Registrations (last 30 days)">
+                <ResponsiveContainer width="100%" height={280}>
                     <LineChart data={dailyData}>
                         <XAxis dataKey="date" />
                         <YAxis />
                         <CartesianGrid strokeDasharray="3 3" />
                         <Tooltip />
-                        <Line type="monotone" dataKey="count" stroke="#2e7d32" strokeWidth={2} />
+                        <Line
+                            type="monotone"
+                            dataKey="count"
+                            stroke="#2e7d32"
+                            strokeWidth={2}
+                        />
                     </LineChart>
                 </ResponsiveContainer>
-            </div>
-        </div>
+            </ChartCard>
+
+        </Box>
+    );
+}
+
+
+/* ✅ CHART CARD COMPONENT */
+function ChartCard({ title, children }) {
+    return (
+        <Box
+            sx={{
+                backgroundColor: "#ffffff",
+                p: 2,
+                borderRadius: "12px",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+                minHeight: 300
+            }}
+        >
+
+            <Typography
+                variant="h6"
+                sx={{
+                    mb: 2,
+                    color: "#333",
+                    fontWeight: 600
+                }}
+            >
+                {title}
+            </Typography>
+
+            {children}
+        </Box>
     );
 }

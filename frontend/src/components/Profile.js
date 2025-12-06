@@ -6,9 +6,14 @@ export default function Profile({ user }) {
         <Box p={4} display="flex" justifyContent="center">
             <Card sx={{ width: 450 }}>
                 <CardContent>
-                    <Typography variant="h5" mb={2}>
-                        User Profile
-                    </Typography>
+                    <Typography
+                            sx={{
+                                fontWeight: 700,
+                                fontSize: { xs: "1rem", sm: "1.1rem", md: "1.15rem" }
+                            }}
+                        >
+                            User Profile
+                        </Typography>
 
                     <Typography><strong>User ID:</strong> {user?.userId}</Typography>
                     <Typography><strong>Name:</strong> {user?.name}</Typography>

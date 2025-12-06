@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react";
 
+const BASE_URL = "http://10.113.72.31:3001";
+
 function AdminAnimals() {
     const [animals, setAnimals] = useState([]);
     const [filtered, setFiltered] = useState([]);
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState("");
 
-    // Image preview modal state
+    // Image preview modal
     const [previewImage, setPreviewImage] = useState(null);
     const [showPreview, setShowPreview] = useState(false);
 
     // Fetch All Animals
     const fetchAnimals = async () => {
         try {
-            const res = await fetch("http://localhost:3001/api/animals/all");
+            const res = await fetch(`${BASE_URL}/api/animals/all`);
             const data = await res.json();
 
             if (data.success) {
@@ -123,16 +125,16 @@ function AdminAnimals() {
                                         (e.currentTarget.style.background = "#f1fff1")
                                     }
                                     onMouseLeave={(e) =>
-                                    (e.currentTarget.style.background =
-                                        i % 2 === 0 ? "#fcfcfc" : "white")
+                                        (e.currentTarget.style.background =
+                                            i % 2 === 0 ? "#fcfcfc" : "white")
                                     }
                                 >
-                                    {/* IMAGE CLICK → PREVIEW */}
+                                    {/* IMAGE */}
                                     <td style={tdStyle}>
                                         <img
                                             src={
                                                 animal.imageUrl
-                                                    ? `http://localhost:3001${animal.imageUrl}`
+                                                    ? `${BASE_URL}${animal.imageUrl}`
                                                     : "https://via.placeholder.com/60"
                                             }
                                             alt="animal"
@@ -141,7 +143,8 @@ function AdminAnimals() {
                                                 height: "60px",
                                                 borderRadius: "8px",
                                                 objectFit: "cover",
-                                                border: "1px solid #ddd"
+                                                border: "1px solid #ddd",
+                                                cursor: "pointer"
                                             }}
                                             onClick={() => {
                                                 setPreviewImage(animal.imageUrl);
@@ -162,6 +165,7 @@ function AdminAnimals() {
                                     <td style={tdStyle}>{animal.breed}</td>
                                     <td style={tdStyle}>{animal.location}</td>
                                     <td style={tdStyle}>{animal.registeredBy}</td>
+
                                     <td style={tdStyle}>
                                         {new Date(animal.createdAt).toLocaleDateString()}
                                     </td>
@@ -193,7 +197,7 @@ function AdminAnimals() {
                     <img
                         src={
                             previewImage
-                                ? `http://localhost:3001${previewImage}`
+                                ? `${BASE_URL}${previewImage}`
                                 : "https://via.placeholder.com/300"
                         }
                         alt="animal-full"
@@ -206,7 +210,6 @@ function AdminAnimals() {
                     />
                 </div>
             )}
-
         </div>
     );
 }

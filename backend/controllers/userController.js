@@ -16,7 +16,7 @@ const registerFLW = async (req, res) => {
         const flw = new User({
             userId,
             name,
-            password,
+            password: hashedPassword,
             role: "flw",
             gender,
             district,

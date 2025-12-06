@@ -30,7 +30,16 @@ const theme = createTheme({
     },
     typography: {
         fontFamily: '"Roboto","Helvetica","Arial",sans-serif',
-        h4: { fontWeight: 600 },
+        h4: {
+            fontWeight: 700,
+            fontSize: "1.8rem"
+        },
+        h6: {
+            fontWeight: 600
+        },
+        body1: {
+            fontSize: "0.95rem"
+        },
     },
 });
 

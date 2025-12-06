@@ -2,8 +2,8 @@
 import axios from "axios";
 
 // Base URL for Node backend
-const API_BASE_URL =
-    process.env.REACT_APP_API_BASE_URL || "http://localhost:3001/api";
+const API_BASE_URL = "http://10.113.72.31:3001/api";
+
 
 // Axios instance for Node backend
 const api = axios.create({
@@ -114,6 +114,10 @@ export const animalAPI = {
             return { success: false, error: error.response?.data?.error || "Failed to fetch history" };
         }
     },
+    delete: (id) => api.delete(`/animals/${id}`),
+
+deleteMultiple: (ids) => api.post(`/animals/delete-multiple`, { ids }),
+
 };
 
 // ------------------------------

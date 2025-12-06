@@ -42,7 +42,7 @@ export default function FlwDashboard({ user }) {
     }, [user]);
 
     return (
-        <Box p={4}>
+        <Box p={{ xs: 1.5, sm: 2, md: 4 }}>
 
             {/* HEADER CARD */}
             <Card
@@ -65,14 +65,23 @@ export default function FlwDashboard({ user }) {
             </Card>
 
             {/* SUMMARY CARDS */}
-            <Grid container spacing={3}>
-                <Grid item xs={12} md={4}>
+            <Grid container spacing={{ xs: 2, md: 3 }}>
+                <Grid item xs={12} sm={6} md={4}>
                     <Card className="dashboard-card">
                         <CardContent sx={{ textAlign: "center", py: 3 }}>
-                            <Typography variant="h4" sx={{ fontWeight: 700 }}>
+                            <Typography
+                                sx={{
+                                    fontWeight: 800,
+                                    fontSize: { xs: "2.2rem", sm: "2.5rem", md: "2.8rem" },
+                                    color: "#2e7d32"
+                                }}
+                            >
+
                                 {stats.today}
                             </Typography>
-                            <Typography>Registered Today</Typography>
+                            <Typography sx={{ fontWeight: 600 }}>
+                                Registered Today
+                            </Typography>
                         </CardContent>
                     </Card>
                 </Grid>
@@ -80,7 +89,13 @@ export default function FlwDashboard({ user }) {
                 <Grid item xs={12} md={4}>
                     <Card className="dashboard-card">
                         <CardContent sx={{ textAlign: "center", py: 3 }}>
-                            <Typography variant="h4" sx={{ fontWeight: 700 }}>
+                            <Typography
+                                sx={{
+                                    fontWeight: 800,
+                                    fontSize: { xs: "2.2rem", sm: "2.5rem", md: "2.8rem" },
+                                    color: "#2e7d32"
+                                }}
+                            >
                                 {stats.month}
                             </Typography>
                             <Typography>Total This Month</Typography>
@@ -91,7 +106,13 @@ export default function FlwDashboard({ user }) {
                 <Grid item xs={12} md={4}>
                     <Card className="dashboard-card">
                         <CardContent sx={{ textAlign: "center", py: 3 }}>
-                            <Typography variant="h4" sx={{ fontWeight: 700 }}>
+                            <Typography
+                                sx={{
+                                    fontWeight: 800,
+                                    fontSize: { xs: "2.2rem", sm: "2.5rem", md: "2.8rem" },
+                                    color: "#2e7d32"
+                                }}
+                            >
                                 {stats.accuracy}%
                             </Typography>
                             <Typography>Accuracy Rate</Typography>
@@ -108,10 +129,24 @@ export default function FlwDashboard({ user }) {
             <Grid container spacing={3}>
                 <Grid item xs={12} md={3}>
                     <Card className="dashboard-card" sx={{ textAlign: "center", p: 2 }}>
-                        <Typography variant="h6">New Registration</Typography>
+                        <Typography
+                            sx={{
+                                fontWeight: 700,
+                                fontSize: { xs: "1rem", sm: "1.1rem", md: "1.15rem" }
+                            }}
+                        >
+                            New Registration
+                        </Typography>
                         <Link to="/register">
-                            <Button variant="contained" sx={{ mt: 1, width: "100%" }}>
-                                Open
+                            <Button
+                                fullWidth
+                                size="large"
+                                variant="contained"
+                                sx={{ mt: 1, py: 1 }}
+                            >
+
+                                <Typography sx={{ fontWeight: 600 }}>OPEN</Typography>
+
                             </Button>
                         </Link>
                     </Card>
@@ -119,10 +154,25 @@ export default function FlwDashboard({ user }) {
 
                 <Grid item xs={12} md={3}>
                     <Card className="dashboard-card" sx={{ textAlign: "center", p: 2 }}>
-                        <Typography variant="h6">Search & History</Typography>
+                        <Typography
+                            sx={{
+                                fontWeight: 700,
+                                fontSize: { xs: "1rem", sm: "1.1rem", md: "1.15rem" }
+                            }}
+                        >
+                            Search & History
+                        </Typography>
+
                         <Link to="/search">
-                            <Button variant="contained" sx={{ mt: 1, width: "100%" }}>
-                                Open
+                            <Button
+                                fullWidth
+                                size="large"
+                                variant="contained"
+                                sx={{ mt: 1, py: 1 }}
+                            >
+
+                                <Typography sx={{ fontWeight: 600 }}>OPEN</Typography>
+
                             </Button>
                         </Link>
                     </Card>
@@ -130,10 +180,24 @@ export default function FlwDashboard({ user }) {
 
                 <Grid item xs={12} md={3}>
                     <Card className="dashboard-card" sx={{ textAlign: "center", p: 2 }}>
-                        <Typography variant="h6">Breed Info</Typography>
+                        <Typography
+                            sx={{
+                                fontWeight: 700,
+                                fontSize: { xs: "1rem", sm: "1.1rem", md: "1.15rem" }
+                            }}
+                        >
+                            Breed Info
+                        </Typography>
+
                         <Link to="/breeds">
-                            <Button variant="contained" sx={{ mt: 1, width: "100%" }}>
-                                Open
+                            <Button
+                                fullWidth
+                                size="large"
+                                variant="contained"
+                                sx={{ mt: 1, py: 1 }}
+                            >
+                                <Typography sx={{ fontWeight: 600 }}>OPEN</Typography>
+
                             </Button>
                         </Link>
                     </Card>
@@ -141,10 +205,25 @@ export default function FlwDashboard({ user }) {
 
                 <Grid item xs={12} md={3}>
                     <Card className="dashboard-card" sx={{ textAlign: "center", p: 2 }}>
-                        <Typography variant="h6">Reports</Typography>
+                        <Typography
+                            sx={{
+                                fontWeight: 700,
+                                fontSize: { xs: "1rem", sm: "1.1rem", md: "1.15rem" }
+                            }}
+                        >
+                            Reports
+                        </Typography>
+
                         <Link to="/reports">
-                            <Button variant="contained" sx={{ mt: 1, width: "100%" }}>
-                                Open
+                            <Button
+                                fullWidth
+                                size="large"
+                                variant="contained"
+                                sx={{ mt: 1, py: 1 }}
+                            >
+
+                                <Typography sx={{ fontWeight: 600 }}>OPEN</Typography>
+
                             </Button>
                         </Link>
                     </Card>

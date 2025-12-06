@@ -55,23 +55,95 @@ const Header = ({ user, onLogout }) => {
     };
 
     return (
-        <AppBar position="static" sx={{ mb: 2 }}>
-            <Toolbar>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <AppBar
+            position="sticky"
+            sx={{
+                backgroundColor: '#2E7D32',
+                minHeight: { xs: 56, sm: 60, md: 70 },
+                justifyContent: "center",
+                px: { xs: 1.5, sm: 2, md: 4 },
+            }}
+        >
+            <Toolbar
+                disableGutters
+                sx={{
+                    width: "100%",
+                    display: "flex",
+                    flexDirection: { xs: "column", sm: "row" },
+                    alignItems: { xs: "flex-start", sm: "center" },
+                    justifyContent: "space-between",
+                    gap: { xs: 0.5, sm: 0 },
+                    py: { xs: 0.5, sm: 0 },
+                }}
+            >
+                {/* Title - full width on mobile */}
+                <Typography
+                    variant="h6"
+                    component="div"
+                    sx={{
+                        fontWeight: 600,
+                        fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
+                        whiteSpace: { xs: "normal", sm: "nowrap" },
+                    }}
+                >
                     🐄 Bharat Pashudhan - Breed Recognition
                 </Typography>
 
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                {/* Right side actions */}
+                <Box
+                    sx={{
+                        mt: { xs: 0.5, sm: 0 },
+                        width: { xs: "100%", sm: "auto" },
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: { xs: "space-between", sm: "flex-end" },
+                        gap: { xs: 1, sm: 2 },
+                    }}
+                >
+                    {/* Desktop / tablet: full Dashboard button */}
                     <Button
                         color="inherit"
                         startIcon={<Home />}
                         onClick={() => navigate('/dashboard')}
+                        sx={{
+                            display: { xs: "none", sm: "inline-flex" },
+                            px: { sm: 2 },
+                            fontSize: { sm: "0.85rem" },
+                        }}
                     >
                         Dashboard
                     </Button>
 
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <Typography variant="body2" sx={{ mr: 1 }}>
+                    {/* Mobile: only Home icon */}
+                    <Button
+                        color="inherit"
+                        onClick={() => navigate('/dashboard')}
+                        startIcon={<Home />}
+                        sx={{
+                            display: { xs: "inline-flex", sm: "none" },
+                            fontSize: "0.8rem",
+                            textTransform: "none",
+                            px: 1,
+                        }}
+                    >
+                        Dashboard
+                    </Button>
+
+
+                    <Box
+                        sx={{
+                            display: "flex",
+                            alignItems: "center",
+                        }}
+                    >
+                        {/* Name / role: hide on very small screens, show from sm+ */}
+                        <Typography
+                            variant="body2"
+                            sx={{
+                                mr: 1,
+                                display: { xs: "none", md: "block" },
+                            }}
+                        >
                             {user?.name} ({user?.role})
                         </Typography>
 
@@ -104,7 +176,8 @@ const Header = ({ user, onLogout }) => {
                             onClose={handleClose}
                         >
                             <MenuItem onClick={() => { handleClose(); navigate("/profile") }}>
-                                <span className="material-icons">person</span> Profile
+                                <span className="material-icons" style={{ marginRight: 8 }}>person</span>
+                                Profile
                             </MenuItem>
 
                             <MenuItem onClick={handleLogout}>

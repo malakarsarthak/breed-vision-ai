@@ -37,7 +37,10 @@ const Reports = () => {
 
     return (
         <Box sx={{ p: 3, background: "#f7f7f7", minHeight: "100vh" }}>
-            <Typography variant="h4" fontWeight={600} mb={3}>
+            <Typography sx={{
+                fontWeight: 700,
+                fontSize: { xs: "2rem", sm: "1.1rem", md: "1.15rem" }
+            }}>
                 📊 Reports Dashboard
             </Typography>
 
@@ -46,7 +49,10 @@ const Reports = () => {
                 {/* DAILY REGISTRATION */}
                 <Grid item xs={12} md={6}>
                     <Card sx={{ p: 2 }}>
-                        <Typography variant="h6" fontWeight={500} mb={1}>
+                        <Typography sx={{
+                            fontWeight: 700,
+                            fontSize: { xs: "1.2rem", sm: "1.1rem", md: "1.15rem" }
+                        }}>
                             📅 Daily Registrations
                         </Typography>
                         <Divider sx={{ mb: 2 }} />
@@ -65,7 +71,10 @@ const Reports = () => {
                 {/* MONTHLY REGISTRATION */}
                 <Grid item xs={12} md={6}>
                     <Card sx={{ p: 2 }}>
-                        <Typography variant="h6" fontWeight={500} mb={1}>
+                        <Typography sx={{
+                            fontWeight: 700,
+                            fontSize: { xs: "1.2rem", sm: "1.1rem", md: "1.15rem" }
+                        }}>
                             📆 Monthly Registrations
                         </Typography>
                         <Divider sx={{ mb: 2 }} />
@@ -84,7 +93,10 @@ const Reports = () => {
                 {/* BREED-WISE DISTRIBUTION */}
                 <Grid item xs={12}>
                     <Card sx={{ p: 2 }}>
-                        <Typography variant="h6" fontWeight={500} mb={1}>
+                        <Typography sx={{
+                            fontWeight: 700,
+                            fontSize: { xs: "1.2rem", sm: "1.1rem", md: "1.15rem" }
+                        }}>
                             🐮 Breed-wise Registrations
                         </Typography>
                         <Divider sx={{ mb: 2 }} />
@@ -103,7 +115,10 @@ const Reports = () => {
                 {/* CATTLE VS BUFFALO */}
                 <Grid item xs={12} md={6}>
                     <Card sx={{ p: 2 }}>
-                        <Typography variant="h6" fontWeight={500} mb={1}>
+                        <Typography sx={{
+                            fontWeight: 700,
+                            fontSize: { xs: "1.2rem", sm: "1.1rem", md: "1.15rem" }
+                        }}>
                             🐄 Cattle vs Buffalo Ratio
                         </Typography>
                         <Divider sx={{ mb: 2 }} />

@@ -59,7 +59,10 @@ const BreedInfo = () => {
     return (
         <Container maxWidth="lg" sx={{ py: 3 }}>
             <Paper sx={{ p: 3, mb: 4 }}>
-                <Typography variant="h4" align="center">
+                <Typography sx={{
+                    fontWeight: 700,
+                    fontSize: { xs: "1.5rem", sm: "1.1rem", md: "1.15rem" }
+                }} align="center">
                     🐄 Indian Cattle & Buffalo Breeds
                 </Typography>
 
@@ -84,7 +87,10 @@ const BreedInfo = () => {
                 </Box>
             </Paper>
 
-            <Typography variant="h5" sx={{ mb: 2 }}>
+            <Typography sx={{
+                fontWeight: 700,
+                fontSize: { xs: "1rem", sm: "1.1rem", md: "1.15rem" }
+            }}>
                 Breed Database ({filteredBreeds.length} breeds)
             </Typography>
 
@@ -109,7 +115,10 @@ const BreedInfo = () => {
 
                             <CardContent sx={{ flexGrow: 1 }}>
                                 <Box display="flex" justifyContent="space-between" alignItems="center">
-                                    <Typography variant="h6">{breed.name}</Typography>
+                                    <Typography sx={{
+                                        fontWeight: 700,
+                                        fontSize: { xs: "1rem", sm: "1.1rem", md: "1.15rem" }
+                                    }}>{breed.name}</Typography>
                                     <Chip
                                         label={breed.type}
                                         color={breed.type === "Cattle" ? "primary" : "secondary"}

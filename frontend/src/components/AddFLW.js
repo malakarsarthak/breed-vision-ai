@@ -49,7 +49,10 @@ function AddFLW() {
         <div style={{ padding: "40px", display: "flex", justifyContent: "center" }}>
             <Card style={{ width: "450px", padding: "20px" }}>
                 <CardContent>
-                    <Typography variant="h5" style={{ fontWeight: "600", marginBottom: "20px" }}>
+                    <Typography sx={{
+                            fontWeight: 700,
+                            fontSize: { xs: "1.2rem", sm: "1.1rem", md: "1.15rem" }
+                        }}>
                         Add New Field Level Worker
                     </Typography>
 

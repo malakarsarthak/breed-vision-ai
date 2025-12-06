@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { authAPI } from "../services/api";
 
+
 function EditFLW() {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -52,78 +53,79 @@ function EditFLW() {
             alert(result.error);
         }
     };
-
     return (
         <div style={{ padding: "25px" }}>
-            <h2>Edit FLW</h2>
+            <h2 style={{ color: "#2e7d32"}}>Edit FLW</h2>
 
-            {loading ? (
-                <p>Loading...</p>
-            ) : (
-                <form onSubmit={handleSubmit} style={{ maxWidth: "400px" }}>
-                    <label>Name</label>
+            {
+        loading ? (
+            <p>Loading...</p>
+        ) : (
+            <form onSubmit={handleSubmit} style={{ maxWidth: "400px" }}>
+                <label>Name</label>
+                <input
+                    type="text"
+                    value={form.name}
+                    onChange={(e) =>
+                        setForm({ ...form, name: e.target.value })
+                    }
+                    style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
+                />
+
+                <label>Gender</label>
+                <select
+                    value={form.gender}
+                    onChange={(e) =>
+                        setForm({ ...form, gender: e.target.value })
+                    }
+                    style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
+                >
+                    <option value="male">Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+
+                <label>District</label>
+                <input
+                    type="text"
+                    value={form.district}
+                    onChange={(e) =>
+                        setForm({ ...form, district: e.target.value })
+                    }
+                    style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
+                />
+
+                <label>
                     <input
-                        type="text"
-                        value={form.name}
+                        type="checkbox"
+                        checked={form.isTrained}
                         onChange={(e) =>
-                            setForm({ ...form, name: e.target.value })
+                            setForm({ ...form, isTrained: e.target.checked })
                         }
-                        style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
                     />
+                    &nbsp; Trained
+                </label>
 
-                    <label>Gender</label>
-                    <select
-                        value={form.gender}
-                        onChange={(e) =>
-                            setForm({ ...form, gender: e.target.value })
-                        }
-                        style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
-                    >     
-                        <option value="male">Gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
+                <br /><br />
 
-                    <label>District</label>
-                    <input
-                        type="text"
-                        value={form.district}
-                        onChange={(e) =>
-                            setForm({ ...form, district: e.target.value })
-                        }
-                        style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
-                    />
-
-                    <label>
-                        <input
-                            type="checkbox"
-                            checked={form.isTrained}
-                            onChange={(e) =>
-                                setForm({ ...form, isTrained: e.target.checked })
-                            }
-                        />
-                        &nbsp; Trained
-                    </label>
-
-                    <br /><br />
-
-                    <button
-                        type="submit"
-                        style={{
-                            padding: "10px 20px",
-                            backgroundColor: "#2e7d32",
-                            color: "white",
-                            border: "none",
-                            borderRadius: "6px",
-                            cursor: "pointer",
-                            fontWeight: "600",
-                        }}
-                    >
-                        Update FLW
-                    </button>
-                </form>
-            )}
-        </div>
+                <button
+                    type="submit"
+                    style={{
+                        padding: "10px 20px",
+                        backgroundColor: "#2e7d32",
+                        color: "white",
+                        border: "none",
+                        borderRadius: "6px",
+                        cursor: "pointer",
+                        fontWeight: "600",
+                    }}
+                >
+                    Update FLW
+                </button>
+            </form>
+        )
+    }
+        </div >
     );
 }
 
