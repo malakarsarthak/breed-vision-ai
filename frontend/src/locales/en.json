@@ -1,0 +1,146 @@
+{
+    "select_language": "Select Language",
+
+    "welcome_flw": "Welcome FLW",
+    "dashboard_title": "Dashboard",
+
+    "button_next": "Next",
+    "button_submit": "Submit",
+    "button_continue": "Continue",
+    "button_open": "OPEN",
+
+    "animal_details": "Animal Details",
+    "capture_image": "Capture Image",
+    "breed_prediction": "Breed Prediction",
+    "enter_tag_id": "Enter Tag ID",
+
+    "settings": "Settings",
+    "change_language": "Change Language",
+
+    "registered_today": "Registered Today",
+    "total_month": "Total This Month",
+
+    "quick_actions": "Quick Actions",
+    "new_registration": "New Registration",
+    "search_history": "Search & History",
+    "breed_info": "Breed Info",
+    "reports": "Reports",
+
+    "recent_activity": "Recent Activity",
+    "no_recent_activity": "No recent activity found",
+
+    "search_history_title": "Registration History & Search",
+    "breed": "Breed",
+    "date": "Date",
+    "search": "Search",
+    "reset": "Reset",
+    "no_records": "No records found.",
+    "select": "Select",
+
+
+    "delete_record_title": "Delete record?",
+    "delete_multiple_title": "Delete {{count}} records?",
+    "delete_warning": "This cannot be undone.",
+    "delete_button": "Delete",
+    "delete_all_button": "Delete All",
+    "delete_selected": "Delete Selected ({{count}})",
+    "delete_failed": "Delete failed",
+    "api_not_found": "Delete API not found on server",
+    "error_load_history": "Failed to load history",
+    "error_search": "Search failed",
+
+    "reports_dashboard": "Reports Dashboard",
+    "daily_registrations": "Daily Registrations",
+    "monthly_registrations": "Monthly Registrations",
+    "breed_wise": "Breed-wise Registrations",
+    "cattle_vs_buffalo": "Cattle vs Buffalo Ratio",
+
+    "user_profile": "User Profile",
+    "user_id": "User ID",
+    "name": "Name",
+    "role": "Role",
+    "district": "District",
+
+    "app_title": "Bharat Pashudhan - Breed Recognition",
+    "dashboard": "Dashboard",
+
+    "profile": "Profile",
+    "logout": "Logout",
+    "logout_title": "Logout?",
+    "logout_warning": "Are you sure you want to logout?",
+    "logout_confirm": "Yes, logout",
+    "logout_success": "Logged out!",
+    "logout_success_msg": "You have been logged out successfully.",
+
+    "animals_registered_today": "Animals Registered Today",
+    "total_this_month": "Total This Month",
+    "accuracy_rate": "Accuracy Rate",
+
+    "breed_info_title": "Indian Cattle & Buffalo Breeds",
+    "breed_info_subtitle": "Reference guide for breed identification and characteristics",
+    "search_breeds": "Search breeds...",
+    "breed_database": "Breed Database",
+
+    "india": "India",
+    "indigenous_cattle": "Indigenous cattle breed",
+    "indigenous_buffalo": "Indigenous buffalo breed",
+
+    "cattle": "Cattle",
+    "buffalo": "Buffalo",
+
+    "origin": "Origin",
+    "detailed_info": "Detailed Information",
+    "milk_yield": "Milk Yield",
+    "body_weight": "Body Weight",
+    "special_features": "Special Features",
+
+    "no_breeds_found": "No breeds found.",
+    "try_other_search": "Try another search term.",
+
+    "animal_registration": "Animal Registration",
+    "step_animal_details": "Animal Details",
+    "step_image_capture": "Image Capture",
+    "step_breed_recognition": "Breed Recognition",
+    "step_review": "Review",
+
+    "tag_id": "Tag ID",
+    "owner_name": "Owner Name",
+    "owner_phone": "Owner Phone",
+    "gender": "Gender",
+    "age_months": "Age (months)",
+    "location": "Location",
+
+    "open_camera": "Open Camera",
+    "close_camera": "Close Camera",
+    "add_more": "Add More",
+    "crop_image": "Crop Image",
+    "cropped_images": "Cropped Images",
+
+    "analyze_ai": "Analyze Images (AI)",
+    "analyzing": "Analyzing...",
+    "error_need_images": "Please upload at least one image.",
+    "error_tag_required": "Tag ID is required.",
+    "error_owner_required": "Owner name is required.",
+    "error_phone_required": "Owner phone is required.",
+    "error_missing_field": "Missing field: ",
+
+    "detected_species": "Detected Species",
+    "breed_ready": "Breed recognition complete",
+    "top_3_predictions": "Top 3 Predictions",
+    "confirmed_breed": "Confirmed Breed",
+    "unknown": "Unknown",
+
+    "review": "Review",
+    "tag": "Tag",
+    "species": "Species",
+    "owner": "Owner",
+
+    "submit": "Submit",
+    "next": "Next",
+    "back": "Back",
+    "analyze_next": "Analyze & Next",
+
+    "registration_success": "Animal registered successfully!",
+    "error_analysis_failed": "Failed to analyze images.",
+    "error_registration_failed": "Registration failed."
+}

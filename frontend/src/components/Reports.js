@@ -12,9 +12,15 @@ import {
     Box,
     Divider
 } from "@mui/material";
+
 import { reportsAPI } from "../services/api";
 
+// 🔥 i18n
+import { useTranslation } from "react-i18next";
+
 const Reports = () => {
+    const { t } = useTranslation();
+
     const [daily, setDaily] = useState([]);
     const [monthly, setMonthly] = useState([]);
     const [breedData, setBreedData] = useState([]);
@@ -41,7 +47,7 @@ const Reports = () => {
                 fontWeight: 700,
                 fontSize: { xs: "2rem", sm: "1.1rem", md: "1.15rem" }
             }}>
-                📊 Reports Dashboard
+                📊 {t("reports_dashboard")}
             </Typography>
 
             <Grid container spacing={3}>
@@ -53,7 +59,7 @@ const Reports = () => {
                             fontWeight: 700,
                             fontSize: { xs: "1.2rem", sm: "1.1rem", md: "1.15rem" }
                         }}>
-                            📅 Daily Registrations
+                            📅 {t("daily_registrations")}
                         </Typography>
                         <Divider sx={{ mb: 2 }} />
 
@@ -75,7 +81,7 @@ const Reports = () => {
                             fontWeight: 700,
                             fontSize: { xs: "1.2rem", sm: "1.1rem", md: "1.15rem" }
                         }}>
-                            📆 Monthly Registrations
+                            📆 {t("monthly_registrations")}
                         </Typography>
                         <Divider sx={{ mb: 2 }} />
 
@@ -97,7 +103,7 @@ const Reports = () => {
                             fontWeight: 700,
                             fontSize: { xs: "1.2rem", sm: "1.1rem", md: "1.15rem" }
                         }}>
-                            🐮 Breed-wise Registrations
+                            🐮 {t("breed_wise")}
                         </Typography>
                         <Divider sx={{ mb: 2 }} />
 
@@ -119,7 +125,7 @@ const Reports = () => {
                             fontWeight: 700,
                             fontSize: { xs: "1.2rem", sm: "1.1rem", md: "1.15rem" }
                         }}>
-                            🐄 Cattle vs Buffalo Ratio
+                            🐄 {t("cattle_vs_buffalo")}
                         </Typography>
                         <Divider sx={{ mb: 2 }} />
 
@@ -141,6 +147,7 @@ const Reports = () => {
                         </ResponsiveContainer>
                     </Card>
                 </Grid>
+
             </Grid>
         </Box>
     );

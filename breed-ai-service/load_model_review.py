@@ -1,12 +1,16 @@
-import torch
-import torch.serialization
-from torchvision.models.resnet import ResNet
+import tensorflow as tf
+from tensorflow.keras.models import load_model
 
-torch.serialization.add_safe_globals([ResNet])
+MODEL_PATH = "model/epoch_04.keras"
 
-MODEL_PATH = "model/bovinebreedclassifier.pt"
+# Load Keras model
+model = load_model(MODEL_PATH)
 
-model = torch.load(MODEL_PATH, map_location="cpu", weights_only=False)
+print("\n===== KERAS MODEL LOADED SUCCESSFULLY =====\n")
+model.summary()
+
+# Output shape check
+print("\nModel output shape:", model.output_shape)
 print("\n===== MODEL LOADED SUCCESSFULLY =====\n")
 print(model)
 

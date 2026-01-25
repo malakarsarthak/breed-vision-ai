@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const BASE_URL = "http://10.113.72.31:3001";
+const BASE_URL = "http://127.0.0.1:3001";
 
 function AdminAnimals() {
     const [animals, setAnimals] = useState([]);

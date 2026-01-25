@@ -1,0 +1,146 @@
+{
+    "select_language": "भाषा चुनें",
+
+    "welcome_flw": "स्वागत है FLW",
+    "dashboard_title": "डैशबोर्ड",
+
+    "button_next": "आगे",
+    "button_submit": "जमा करें",
+    "button_continue": "जारी रखें",
+    "button_open": "खोलें",
+
+    "animal_details": "पशु विवरण",
+    "capture_image": "छवि कैप्चर करें",
+    "breed_prediction": "नस्ल पहचान",
+    "enter_tag_id": "टैग आईडी दर्ज करें",
+
+    "settings": "सेटिंग्स",
+    "change_language": "भाषा बदलें",
+
+    "registered_today": "आज पंजीकृत",
+    "total_month": "इस महीने कुल",
+
+    "quick_actions": "त्वरित क्रियाएँ",
+    "new_registration": "नई पंजीकरण",
+    "search_history": "खोज और इतिहास",
+    "breed_info": "नस्ल जानकारी",
+    "reports": "रिपोर्ट्स",
+
+    "recent_activity": "हाल की गतिविधि",
+    "no_recent_activity": "कोई हाल की गतिविधि नहीं मिली",
+
+    "search_history_title": "पंजीकरण इतिहास और खोज",
+    "date": "तारीख",
+    "search": "खोजें",
+    "reset": "रीसेट",
+    "no_records": "कोई रिकॉर्ड नहीं मिला।",
+    "select": "चुनें",
+
+    "delete_record_title": "रिकॉर्ड हटाएँ?",
+    "delete_multiple_title": "{{count}} रिकॉर्ड हटाएँ?",
+    "delete_warning": "यह कार्य वापस नहीं लिया जा सकता।",
+    "delete_button": "हटाएँ",
+    "delete_all_button": "सभी हटाएँ",
+    "delete_selected": "चुने गए हटाएँ ({{count}})",
+    "delete_failed": "हटाना विफल",
+    "api_not_found": "सर्वर पर Delete API उपलब्ध नहीं है",
+    "error_load_history": "इतिहास लोड विफल",
+    "error_search": "खोज विफल",
+
+    "reports_dashboard": "रिपोर्ट डैशबोर्ड",
+    "daily_registrations": "दैनिक पंजीकरण",
+    "monthly_registrations": "मासिक पंजीकरण",
+    "breed_wise": "नस्ल आधारित पंजीकरण",
+    "cattle_vs_buffalo": "गाय बनाम भैंस अनुपात",
+
+    "user_profile": "उपयोगकर्ता प्रोफाइल",
+    "user_id": "यूज़र आईडी",
+    "name": "नाम",
+    "role": "भूमिका",
+    "district": "जिला",
+
+    "app_title": "भारत पशुधन - नस्ल पहचान",
+    "dashboard": "डैशबोर्ड",
+
+    "profile": "प्रोफ़ाइल",
+    "logout": "लॉगआउट",
+
+    "logout_title": "लॉगआउट करें?",
+    "logout_warning": "क्या आप वाकई लॉगआउट करना चाहते हैं?",
+    "logout_confirm": "हाँ, लॉगआउट करें",
+    "logout_success": "लॉगआउट सफल!",
+    "logout_success_msg": "आप सफलतापूर्वक लॉगआउट हो गए हैं।",
+
+    "animals_registered_today": "आज पंजीकृत पशु",
+    "total_this_month": "इस महीने कुल",
+    "accuracy_rate": "सटीकता दर",
+
+    "breed_info_title": "भारतीय गाय और भैंस की नस्लें",
+    "breed_info_subtitle": "नस्ल पहचान और विशेषताओं के लिए संदर्भ मार्गदर्शिका",
+    "search_breeds": "नस्ल खोजें...",
+    "breed_database": "नस्ल डेटाबेस",
+
+    "india": "भारत",
+    "indigenous_cattle": "स्वदेशी गाय की नस्ल",
+    "indigenous_buffalo": "स्वदेशी भैंस की नस्ल",
+
+    "cattle": "गाय",
+    "buffalo": "भैंस",
+
+    "origin": "उत्पत्ति",
+    "detailed_info": "विस्तृत जानकारी",
+    "milk_yield": "दूध उत्पादन",
+    "body_weight": "शारीरिक वजन",
+    "special_features": "विशेष विशेषताएँ",
+
+    "no_breeds_found": "कोई नस्ल नहीं मिली।",
+    "try_other_search": "कृपया कोई अन्य शब्द आज़माएँ।",
+
+    "animal_registration": "पशु पंजीकरण",
+    "step_animal_details": "पशु विवरण",
+    "step_image_capture": "चित्र कैप्चर",
+    "step_breed_recognition": "नस्ल पहचान",
+    "step_review": "समीक्षा",
+
+    "tag_id": "टैग आईडी",
+    "owner_name": "मालिक का नाम",
+    "owner_phone": "मालिक का फ़ोन",
+    "gender": "लिंग",
+    "age_months": "आयु (महीनों में)",
+    "location": "स्थान",
+
+    "open_camera": "कैमरा खोलें",
+    "close_camera": "कैमरा बंद करें",
+    "add_more": "और जोड़ें",
+    "crop_image": "छवि क्रॉप करें",
+    "cropped_images": "क्रॉप की गई छवियाँ",
+
+    "analyze_ai": "एआई विश्लेषण",
+    "analyzing": "विश्लेषण हो रहा है...",
+    "error_need_images": "कम से कम एक छवि अपलोड करें।",
+    "error_tag_required": "टैग आईडी आवश्यक है।",
+    "error_owner_required": "मालिक का नाम आवश्यक है।",
+    "error_phone_required": "मालिक का फोन आवश्यक है।",
+    "error_missing_field": "कमी वाला फ़ील्ड: ",
+
+    "detected_species": "पता चला प्रजाति",
+    "breed_ready": "नस्ल पहचान पूरी",
+    "top_3_predictions": "टॉप 3 भविष्यवाणियाँ",
+    "confirmed_breed": "पुष्ट नस्ल",
+    "unknown": "अज्ञात",
+
+    "review": "समीक्षा",
+    "tag": "टैग",
+    "species": "प्रजाति",
+    "owner": "मालिक",
+    "breed": "नस्ल",
+
+    "submit": "जमा करें",
+    "next": "आगे",
+    "back": "वापस",
+    "analyze_next": "विश्लेषण करें और आगे बढ़ें",
+
+    "registration_success": "पशु सफलतापूर्वक पंजीकृत!",
+    "error_analysis_failed": "छवियों का विश्लेषण विफल.",
+    "error_registration_failed": "पंजीकरण विफल."
+}

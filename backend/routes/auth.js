@@ -6,9 +6,7 @@ const User = require("../models/user");
 
 const JWT_SECRET = process.env.JWT_SECRET || "YOUR_JWT_SECRET_KEY";
 
-// -------------------------------------------------------
 // USER LOGIN
-// -------------------------------------------------------
 router.post("/login", async (req, res) => {
     try {
         const { userId, password } = req.body;
@@ -60,9 +58,7 @@ router.post("/login", async (req, res) => {
     }
 });
 
-// -------------------------------------------------------
 // GET LOGGED-IN USER DETAILS
-// -------------------------------------------------------
 router.get("/me", async (req, res) => {
     try {
         const authHeader = req.headers.authorization;
@@ -88,16 +84,13 @@ router.get("/me", async (req, res) => {
     }
 });
 
-// -------------------------------------------------------
+
 // LOGOUT (Frontend token clear)
-// -------------------------------------------------------
 router.post("/logout", (req, res) => {
     return res.json({ success: true, message: "Logged out successfully" });
 });
 
-// -------------------------------------------------------
 // TOKEN VERIFY (Useful for frontend auto-login)
-// -------------------------------------------------------
 router.get("/verify", (req, res) => {
     try {
         const token = req.headers.authorization?.split(" ")[1];
@@ -115,9 +108,8 @@ router.get("/verify", (req, res) => {
 });
 
 module.exports = router;
-// -------------------------------------------------------
+
 // REGISTER NEW FLW USER
-// -------------------------------------------------------
 router.post("/register-flw", async (req, res) => {
     try {
         const { userId, name, password, gender, district, isTrained } = req.body;

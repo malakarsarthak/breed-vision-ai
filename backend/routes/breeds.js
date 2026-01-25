@@ -3,6 +3,7 @@ const router = express.Router();
 const fs = require("fs");
 const path = require("path");
 const axios = require("axios");
+const breedController = require("../controllers/breedController");
 
 const UPLOAD_DIR = path.join(__dirname, "../uploads/images");
 
@@ -11,9 +12,7 @@ if (!fs.existsSync(UPLOAD_DIR)) {
     fs.mkdirSync(UPLOAD_DIR, { recursive: true });
 }
 
-// ----------------------------------------------
-// 1️⃣ Recognize Breed from Base64 Image
-// ----------------------------------------------
+
 router.post("/recognize-base64", async (req, res) => {
     try {
         const { image } = req.body;
@@ -33,14 +32,12 @@ router.post("/recognize-base64", async (req, res) => {
         const filename = `IMG_${Date.now()}.jpg`;
         const filepath = path.join(UPLOAD_DIR, filename);
 
-        // Save image
+        
         fs.writeFileSync(filepath, buffer);
 
         console.log("✔ Image saved:", filepath);
 
-        // --------------------------------------------
-        // CALL PYTHON MODEL API
-        // --------------------------------------------
+        
         const aiResponse = await axios.post("http://127.0.0.1:5000/predict", {
             image_path: filepath,
         });
@@ -62,9 +59,7 @@ router.post("/recognize-base64", async (req, res) => {
     }
 });
 
-// ----------------------------------------------
-// 2️⃣ List of Breeds
-// ----------------------------------------------
+
 router.get("/list", (req, res) => {
     const breeds = [
         "Gir",
@@ -85,9 +80,7 @@ router.get("/list", (req, res) => {
     });
 });
 
-// ----------------------------------------------
-// 3️⃣ Breed Info
-// ----------------------------------------------
+
 router.get("/info/:breed", (req, res) => {
     const info = {
         name: req.params.breed,
@@ -99,5 +92,11 @@ router.get("/info/:breed", (req, res) => {
 
     res.json({ success: true, data: info });
 });
+
+
+router.post("/manual", breedController.saveManualBreed);
+
+router.get("/manual", breedController.getAllManualBreeds);
+
 
 module.exports = router;

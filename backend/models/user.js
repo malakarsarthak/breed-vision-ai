@@ -24,12 +24,12 @@ const userSchema = new mongoose.Schema(
             default: "male",
         },
 
-        district: {         // <-- ADD THIS
+        district: {         
             type: String,
             required: false,
         },
 
-        isTrained: {        // <-- FIX NAME
+        isTrained: {        
             type: Boolean,
             default: false,
         },

@@ -3,9 +3,7 @@ const router = express.Router();
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 
-// ---------------------------------------------
 // GET ALL FLWs
-// ---------------------------------------------
 router.get("/flw", async (req, res) => {
     try {
         const users = await User.find({ role: "flw" }).select("-password");
@@ -15,9 +13,8 @@ router.get("/flw", async (req, res) => {
     }
 });
 
-// ---------------------------------------------
+
 // REGISTER NEW FLW
-// ---------------------------------------------
 router.post("/register-flw", async (req, res) => {
     try {
         const { userId, name, password, gender, district, isTrained } = req.body;
@@ -48,9 +45,7 @@ router.post("/register-flw", async (req, res) => {
     }
 });
 
-// ---------------------------------------------
 // DELETE FLW BY ID
-// ---------------------------------------------
 router.delete("/delete-flw/:id", async (req, res) => {
     try {
         const user = await User.findByIdAndDelete(req.params.id);
@@ -72,9 +67,8 @@ router.delete("/delete-flw/:id", async (req, res) => {
     }
 });
 
-// ---------------------------------------------
-// UPDATE / EDIT FLW
-// ---------------------------------------------
+
+//   EDIT FLW
 router.put("/edit-flw/:id", async (req, res) => {
     try {
         const { name, gender, district, isTrained, password } = req.body;

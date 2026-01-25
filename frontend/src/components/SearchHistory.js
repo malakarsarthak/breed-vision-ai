@@ -18,7 +18,12 @@ import Swal from 'sweetalert2';
 
 import { animalAPI } from '../services/api';
 
+// 🔥 i18n
+import { useTranslation } from "react-i18next";
+
 const SearchHistory = ({ user }) => {
+    const { t } = useTranslation();
+
     const [history, setHistory] = useState([]);
     const [searchParams, setSearchParams] = useState({
         tagId: '',
@@ -38,7 +43,7 @@ const SearchHistory = ({ user }) => {
             const res = await animalAPI.getHistory(user.userId);
             setHistory(res.data || []);
         } catch (err) {
-            setError('Failed to load history: ' + err.message);
+            setError(t("error_load_history") + ": " + err.message);
         }
     };
 
@@ -53,7 +58,7 @@ const SearchHistory = ({ user }) => {
 
             setHistory(res.data || []);
         } catch (err) {
-            setError('Search failed: ' + err.message);
+            setError(t("error_search") + ": " + err.message);
         }
     };
 
@@ -61,19 +66,17 @@ const SearchHistory = ({ user }) => {
         setSearchParams({ ...searchParams, [e.target.name]: e.target.value });
     };
 
-    // ---------------------
     // DELETE SINGLE
-    // ---------------------
     const deleteSingle = async (id) => {
         try {
             const yes = await Swal.fire({
-                title: "Delete record?",
-                text: "This cannot be undone.",
+                title: t("delete_record_title"),
+                text: t("delete_warning"),
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#2e7d32",
                 cancelButtonColor: "#b71c1c",
-                confirmButtonText: "Delete",
+                confirmButtonText: t("delete_button")
             });
 
             if (!yes.isConfirmed) return;
@@ -84,36 +87,32 @@ const SearchHistory = ({ user }) => {
         } catch (err) {
             Swal.fire({
                 icon: "error",
-                title: "Delete failed",
-                text: err.response?.data?.error || "Delete API not found on server",
+                title: t("delete_failed"),
+                text: err.response?.data?.error || t("api_not_found")
             });
         }
     };
 
-    // ---------------------
-    // MULTI SELECTION
-    // ---------------------
+    // MULTI SELECT
     const toggleSelect = (id) => {
         setSelected((prev) =>
             prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
         );
     };
 
-    // ---------------------
     // DELETE MULTIPLE
-    // ---------------------
     const deleteSelected = async () => {
         if (selected.length === 0) return;
 
         try {
             const yes = await Swal.fire({
-                title: `Delete ${selected.length} records?`,
-                text: "This cannot be undone.",
+                title: t("delete_multiple_title", { count: selected.length }),
+                text: t("delete_warning"),
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#2e7d32",
                 cancelButtonColor: "#b71c1c",
-                confirmButtonText: "Delete All",
+                confirmButtonText: t("delete_all_button")
             });
 
             if (!yes.isConfirmed) return;
@@ -125,12 +124,11 @@ const SearchHistory = ({ user }) => {
         } catch (err) {
             Swal.fire({
                 icon: "error",
-                title: "Delete failed",
-                text: err.response?.data?.error || "Delete API not found on server",
+                title: t("delete_failed"),
+                text: err.response?.data?.error || t("api_not_found")
             });
         }
     };
-
 
     return (
         <Container sx={{ mt: 4 }}>
@@ -138,7 +136,7 @@ const SearchHistory = ({ user }) => {
                 fontWeight: 700,
                 fontSize: { xs: "1.5rem", sm: "1.1rem", md: "1.15rem" }
             }}>
-                Registration History & Search
+                {t("search_history_title")}
             </Typography>
 
             {error && (
@@ -158,23 +156,25 @@ const SearchHistory = ({ user }) => {
                 }}
             >
 
-                <TextField fullWidth
+                <TextField
+                    fullWidth
                     name="tagId"
-                    label="Tag ID"
+                    label={t("tag_id")}
                     value={searchParams.tagId}
                     onChange={handleChange}
                 />
 
-                <TextField fullWidth
+                <TextField
+                    fullWidth
                     name="breed"
-                    label="Breed"
+                    label={t("breed")}
                     value={searchParams.breed}
                     onChange={handleChange}
                 />
 
                 <TextField
                     name="date"
-                    label="Date"
+                    label={t("date")}
                     type="date"
                     InputLabelProps={{ shrink: true }}
                     value={searchParams.date}
@@ -182,12 +182,11 @@ const SearchHistory = ({ user }) => {
                 />
 
                 <Button fullWidth variant="contained" onClick={handleSearch}>
-                    Search
+                    {t("search")}
                 </Button>
 
                 <Button fullWidth onClick={fetchHistory}>
-
-                    Reset
+                    {t("reset")}
                 </Button>
 
                 {selected.length > 0 && (
@@ -196,7 +195,7 @@ const SearchHistory = ({ user }) => {
                         color="error"
                         onClick={deleteSelected}
                     >
-                        Delete Selected ({selected.length})
+                        {t("delete_selected", { count: selected.length })}
                     </Button>
                 )}
             </Box>
@@ -204,7 +203,7 @@ const SearchHistory = ({ user }) => {
             {/* RESULTS */}
             <Grid container spacing={3}>
                 {history.length === 0 ? (
-                    <Typography>No records found.</Typography>
+                    <Typography>{t("no_records")}</Typography>
                 ) : (
                     history.map((animal) => (
                         <Grid item xs={12} sm={6} key={animal._id}>
@@ -220,16 +219,14 @@ const SearchHistory = ({ user }) => {
                                             objectFit: "cover",
                                             borderRadius: "6px"
                                         }}
-                                        image={`http://10.113.72.31:3001${animal.imageUrl}`}
+                                        image={`http://127.0.0.1:3001${animal.imageUrl}`}
                                         alt="Animal"
                                     />
-
-
                                 )}
 
                                 <CardContent>
 
-                                    {/* Select checkbox */}
+                                    {/* SELECT CHECKBOX */}
                                     <FormControlLabel
                                         control={
                                             <Checkbox
@@ -237,10 +234,10 @@ const SearchHistory = ({ user }) => {
                                                 onChange={() => toggleSelect(animal._id)}
                                             />
                                         }
-                                        label="Select"
+                                        label={t("select")}
                                     />
 
-                                    {/* Delete single */}
+                                    {/* DELETE SINGLE */}
                                     <IconButton
                                         sx={{
                                             float: "right",
@@ -251,14 +248,12 @@ const SearchHistory = ({ user }) => {
                                         <DeleteIcon />
                                     </IconButton>
 
-                                    {console.log(animal.imageUrl)}
-
                                     {/* DETAILS */}
-                                    <Typography><strong>Tag:</strong> {animal.tagId}</Typography>
-                                    <Typography><strong>Breed:</strong> {animal.breed}</Typography>
-                                    <Typography><strong>Owner:</strong> {animal.ownerName}</Typography>
+                                    <Typography><strong>{t("tag")}:</strong> {animal.tagId}</Typography>
+                                    <Typography><strong>{t("breed")}:</strong> {animal.breed}</Typography>
+                                    <Typography><strong>{t("owner")}:</strong> {animal.ownerName}</Typography>
                                     <Typography>
-                                        <strong>Date:</strong> {new Date(animal.createdAt).toLocaleDateString()}
+                                        <strong>{t("date")}:</strong> {new Date(animal.createdAt).toLocaleDateString()}
                                     </Typography>
 
                                 </CardContent>
@@ -266,7 +261,6 @@ const SearchHistory = ({ user }) => {
                         </Grid>
                     ))
                 )}
-
             </Grid>
         </Container>
     );

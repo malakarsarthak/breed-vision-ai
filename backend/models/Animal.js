@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const animalSchema = new mongoose.Schema(
     {
-        /* Basic Animal Details */
+        
         tagId: {
             type: String,
             required: true,
@@ -19,10 +19,11 @@ const animalSchema = new mongoose.Schema(
             required: true
         },
 
-        animalType: {
+        
+        species: {
             type: String,
-            enum: ["cattle", "buffalo"],
-            required: true
+            enum: ["cow", "buffalo", "unknown"],
+            required: true        
         },
 
         sex: {
@@ -46,34 +47,33 @@ const animalSchema = new mongoose.Schema(
             required: true
         },
 
-        /* Image stored in Cloud / Local path */
+        
         imageUrl: {
             type: String,
             default: ""
         },
 
-        /* AI Predictions stored for history */
+        
         aiPredictions: [
             {
                 breed: { type: String },
                 confidence: { type: Number },
+                species: { type: String },  
                 modelVersion: { type: String }
             }
         ],
 
-        /* FLW userId who registered the animal */
+        
         registeredBy: {
             type: String,
-            required: true   // MUST be in payload: registeredBy: userId
+            required: true
         },
 
-        /* Whether BPA form submitted */
         bpaSubmitted: {
             type: Boolean,
             default: false
         },
 
-        /* Status by Admin */
         status: {
             type: String,
             enum: ["pending", "verified", "rejected"],
@@ -81,7 +81,7 @@ const animalSchema = new mongoose.Schema(
         }
     },
     {
-        timestamps: true   // createdAt & updatedAt automatically included
+        timestamps: true
     }
 );
 

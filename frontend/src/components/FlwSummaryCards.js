@@ -4,10 +4,15 @@ import PetsIcon from "@mui/icons-material/Pets";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import InsightsIcon from "@mui/icons-material/Insights";
 
+
+import { useTranslation } from "react-i18next";
+
 export default function FlwSummaryCards({ stats }) {
+    const { t } = useTranslation();
+
     return (
         <Grid container spacing={2} sx={{ mt: 2 }}>
-            
+
             {/* Animals Registered Today */}
             <Grid item xs={12} md={4}>
                 <Card elevation={3} sx={{ borderRadius: 3 }}>
@@ -19,7 +24,7 @@ export default function FlwSummaryCards({ stats }) {
                                     {stats.today}
                                 </Typography>
                                 <Typography color="text.secondary">
-                                    Animals Registered Today
+                                    {t("animals_registered_today")}
                                 </Typography>
                             </Box>
                         </Box>
@@ -38,7 +43,7 @@ export default function FlwSummaryCards({ stats }) {
                                     {stats.month}
                                 </Typography>
                                 <Typography color="text.secondary">
-                                    Total This Month
+                                    {t("total_this_month")}
                                 </Typography>
                             </Box>
                         </Box>
@@ -57,7 +62,7 @@ export default function FlwSummaryCards({ stats }) {
                                     {stats.accuracy}%
                                 </Typography>
                                 <Typography color="text.secondary">
-                                    Accuracy Rate
+                                    {t("accuracy_rate")}
                                 </Typography>
                             </Box>
                         </Box>

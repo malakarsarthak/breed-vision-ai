@@ -4,33 +4,30 @@ const path = require("path");
 
 const sanitize = (v) => (typeof v === "string" ? v.trim() : v);
 
-// =========================================
-// 📌 REGISTER ANIMAL
-// =========================================
+// REGISTER ANIMAL
 const registerAnimal = async (req, res) => {
     try {
         const {
             tagId,
             ownerName,
             ownerPhone,
-            animalType,
+            species,       
             sex,
             age,
             location,
             breed,
             imageBase64,
-            userId        // <-- REQUIRED FOR registeredBy
+            userId
         } = req.body;
 
-        // 🛑 Validate required fields
-        if (!tagId || !ownerName || !ownerPhone || !animalType || !sex || !age || !location || !breed) {
+        // Validate required fields (updated)
+        if (!tagId || !ownerName || !ownerPhone || !species || !sex || !age || !location || !breed) {
             return res.status(400).json({
                 success: false,
                 error: "Missing required fields"
             });
         }
 
-        // 🛑 registeredBy must be present
         if (!userId) {
             return res.status(400).json({
                 success: false,
@@ -38,7 +35,7 @@ const registerAnimal = async (req, res) => {
             });
         }
 
-        // 🛑 Duplicate Tag check
+        // Check duplicate tag
         const existing = await Animal.findOne({ tagId });
         if (existing) {
             return res.status(400).json({
@@ -47,9 +44,7 @@ const registerAnimal = async (req, res) => {
             });
         }
 
-        // =========================================
-        // 📌 IMAGE SAVE HANDLING
-        // =========================================
+        // IMAGE SAVE
         let imageUrl = null;
 
         if (imageBase64) {
@@ -78,21 +73,19 @@ const registerAnimal = async (req, res) => {
             }
         }
 
-        // =========================================
-        // 📌 Create Animal Entry
-        // =========================================
+        // Create new animal (UPDATED)
         const animal = new Animal({
             tagId: sanitize(tagId),
             ownerName: sanitize(ownerName),
             ownerPhone: sanitize(ownerPhone),
-            animalType: sanitize(animalType),
+            species: sanitize(species),       
             sex: sanitize(sex),
             age: Number(age),
             location: sanitize(location),
             breed: sanitize(breed),
-            registeredBy: sanitize(userId),   // <-- FIXED
+            registeredBy: sanitize(userId),
             imageUrl,
-            aiPredictions: []
+            aiPredictions: []                 
         });
 
         await animal.save();
@@ -109,9 +102,8 @@ const registerAnimal = async (req, res) => {
 };
 
 
-// =========================================
-// 📌 FLW HISTORY
-// =========================================
+
+// FLW HISTORY
 const getAnimalHistory = async (req, res) => {
     try {
         const flwId = req.params.flwId;
@@ -127,9 +119,8 @@ const getAnimalHistory = async (req, res) => {
 };
 
 
-// =========================================
-// 📌 SEARCH ANIMALS
-// =========================================
+
+// SEARCH ANIMALS
 const searchAnimals = async (req, res) => {
     try {
         const { tagId, breed, registeredBy } = req.query;
@@ -150,9 +141,7 @@ const searchAnimals = async (req, res) => {
 };
 
 
-// =========================================
-// 📌 ADMIN — ALL ANIMALS
-// =========================================
+// ADMIN — ALL ANIMALS
 const getAllAnimals = async (req, res) => {
     try {
         const animals = await Animal.find().sort({ createdAt: -1 });
@@ -164,9 +153,8 @@ const getAllAnimals = async (req, res) => {
 };
 
 
-// =========================================
-// 📌 GET SINGLE ANIMAL
-// =========================================
+
+// GET SINGLE ANIMAL
 const getAnimalById = async (req, res) => {
     try {
         const animal = await Animal.findById(req.params.id);
@@ -186,9 +174,8 @@ const getAnimalById = async (req, res) => {
 };
 
 
-// =========================================
-// ⭐ FLW DASHBOARD STATISTICS ⭐
-// =========================================
+
+// FLW DASHBOARD STATISTICS 
 const getFLWStats = async (req, res) => {
     try {
         const flwId = req.params.flwId;
@@ -211,7 +198,7 @@ const getFLWStats = async (req, res) => {
         });
 
         // Default accuracy (can be changed later)
-        const accuracy = 100;
+        const accuracy = 95;
 
         const recent = await Animal.find({ registeredBy: flwId })
             .sort({ createdAt: -1 })

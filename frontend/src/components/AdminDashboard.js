@@ -10,7 +10,7 @@ function AdminDashboard() {
     const [isMobile, setIsMobile] = useState(false);
     const navigate = useNavigate();
 
-    // ✅ Detect screen
+    //Detect screen
     useEffect(() => {
         const checkScreen = () => setIsMobile(window.innerWidth < 768);
         checkScreen();
@@ -18,10 +18,10 @@ function AdminDashboard() {
         return () => window.removeEventListener("resize", checkScreen);
     }, []);
 
-    // ✅ Fetch FLWs
+    //Fetch FLWs
     const fetchFLWs = async () => {
         try {
-            const response = await fetch("http://10.113.72.31:3001/api/users/flw");
+            const response = await fetch("http://127.0.0.1:3001/api/users/flw");
             const data = await response.json();
             if (data.success) setFlws(data.users);
         } catch (error) {
@@ -60,7 +60,7 @@ function AdminDashboard() {
                 Admin Dashboard
             </h2>
 
-            {/* ✅ Buttons */}
+            {/*Buttons */}
             <div style={{
                 display: "grid",
                 gridTemplateColumns: isMobile ? "1fr" : "repeat(3,1fr)",
@@ -82,7 +82,7 @@ function AdminDashboard() {
                 </div>
             ) : isMobile ? (
 
-                /* ✅ MOBILE CARDS */
+                /* MOBILE CARDS */
                 <div>
                     {flws.map((flw) => (
                         <div key={flw._id} style={cardStyle}>
@@ -115,7 +115,7 @@ function AdminDashboard() {
 
             ) : (
 
-                /* ✅ DESKTOP TABLE */
+                /* DESKTOP TABLE */
                 <div style={{ overflowX: "auto" }}>
                     <table style={tableStyle}>
                         <thead style={{ backgroundColor: "#e8f5e9" }}>
@@ -162,7 +162,7 @@ function AdminDashboard() {
     );
 }
 
-/* ✅ STYLES */
+/* STYLES */
 
 const topButtonBlue = {
     padding: "12px",

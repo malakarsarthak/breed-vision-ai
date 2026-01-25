@@ -80,7 +80,7 @@ function Authentication({ onLogin }) {
                     {loading ? "Logging in..." : "LOGIN"}
                 </button>
 
-                {/* ⭐ New Register Button */}
+                {/*New Register Button */}
                 <button
                     className="register-btn"
                     onClick={() => navigate("/flw-register")}

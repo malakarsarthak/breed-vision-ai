@@ -3,7 +3,7 @@ const router = express.Router();
 const Animal = require("../models/Animal");
 const User = require("../models/user");
 
-// 1. Daily / Monthly registrations
+// Daily / Monthly registrations
 router.get("/registrations-trend", async (req, res) => {
     try {
         const daily = await Animal.aggregate([
@@ -32,7 +32,7 @@ router.get("/registrations-trend", async (req, res) => {
     }
 });
 
-// 2. Breed-wise count
+// Breed-wise count
 router.get("/breed-distribution", async (req, res) => {
     try {
         const result = await Animal.aggregate([
@@ -48,7 +48,7 @@ router.get("/breed-distribution", async (req, res) => {
     }
 });
 
-// 3. Cattle vs Buffalo pie
+// Cattle vs Buffalo pie
 router.get("/animal-type-summary", async (req, res) => {
     try {
         const result = await Animal.aggregate([
@@ -62,7 +62,7 @@ router.get("/animal-type-summary", async (req, res) => {
     }
 });
 
-// 4. Field worker performance
+// Field worker performance
 router.get("/flw-performance", async (req, res) => {
     try {
         const result = await Animal.aggregate([

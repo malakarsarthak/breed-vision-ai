@@ -16,7 +16,7 @@ export default function AdminCharts() {
     const [dailyData, setDailyData] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const base = process.env.REACT_APP_API_BASE_URL || "http://10.113.72.31:3001/api";
+    const base = process.env.REACT_APP_API_BASE_URL || "http://127.0.0.1:3001/api";
 
     useEffect(() => {
         loadCharts();
@@ -55,7 +55,7 @@ export default function AdminCharts() {
                 <Typography sx={{ fontStyle: "italic" }}>Loading charts...</Typography>
             )}
 
-            {/* ✅ TOP ROW: BAR + PIE */}
+            {/* TOP ROW: BAR + PIE */}
             <Box
                 sx={{
                     display: "grid",
@@ -65,7 +65,7 @@ export default function AdminCharts() {
                 }}
             >
 
-                {/* ✅ LOCATION CHART */}
+                {/* LOCATION CHART */}
                 <ChartCard title="Registrations by Location">
                     <ResponsiveContainer width="100%" height={260}>
                         <BarChart data={districtData}>
@@ -77,7 +77,7 @@ export default function AdminCharts() {
                     </ResponsiveContainer>
                 </ChartCard>
 
-                {/* ✅ BREED PIE */}
+                {/*BREED PIE */}
                 <ChartCard title="Breed Distribution">
                     <ResponsiveContainer width="100%" height={260}>
                         <PieChart>
@@ -99,7 +99,7 @@ export default function AdminCharts() {
                 </ChartCard>
             </Box>
 
-            {/* ✅ LINE CHART */}
+            {/* LINE CHART */}
             <ChartCard title="Daily Registrations (last 30 days)">
                 <ResponsiveContainer width="100%" height={280}>
                     <LineChart data={dailyData}>
@@ -122,7 +122,7 @@ export default function AdminCharts() {
 }
 
 
-/* ✅ CHART CARD COMPONENT */
+/* CHART CARD COMPONENT */
 function ChartCard({ title, children }) {
     return (
         <Box

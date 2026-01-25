@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const animalSchema = require("../models/Animal");   // ✅ FIX ADDED HERE
+const animalSchema = require("../models/Animal");   
 
 const {
     registerAnimal,
@@ -30,7 +30,7 @@ router.get("/:id", getAnimalById);
 // FLW stats
 router.get("/flw-stats/:flwId", getFLWStats);
 
-// ⭐ District chart API
+// District chart API
 router.get("/stats/district", async (req, res) => {
     const data = await animalSchema.aggregate([
         { $group: { _id: "$location", count: { $sum: 1 } } }
@@ -45,7 +45,7 @@ router.get("/stats/district", async (req, res) => {
     });
 });
 
-// ⭐ Breed chart API
+// Breed chart API
 router.get("/stats/breed", async (req, res) => {
     const data = await animalSchema.aggregate([
         { $group: { _id: "$breed", count: { $sum: 1 } } }
@@ -60,7 +60,7 @@ router.get("/stats/breed", async (req, res) => {
     });
 });
 
-// ⭐ Daily chart API
+//  Daily chart API
 router.get("/stats/daily", async (req, res) => {
     const data = await animalSchema.aggregate([
         {
@@ -81,7 +81,7 @@ router.get("/stats/daily", async (req, res) => {
     });
 });
 
-// ✅ DELETE SINGLE ANIMAL
+//  DELETE SINGLE ANIMAL
 router.delete("/:id", async (req, res) => {
     try {
         const deleted = await animalSchema.findByIdAndDelete(req.params.id);
@@ -98,7 +98,7 @@ router.delete("/:id", async (req, res) => {
     }
 });
 
-// ✅ DELETE MULTIPLE ANIMALS
+// DELETE MULTIPLE ANIMALS
 router.post("/delete-multiple", async (req, res) => {
     try {
         const { ids } = req.body;

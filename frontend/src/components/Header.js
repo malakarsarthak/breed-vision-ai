@@ -15,8 +15,13 @@ import { Home, AccountCircle, ExitToApp } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
 
+// i18n
+import { useTranslation } from "react-i18next";
+
 const Header = ({ user, onLogout }) => {
     const navigate = useNavigate();
+    const { t } = useTranslation();
+    
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleMenu = (event) => {
@@ -31,25 +36,25 @@ const Header = ({ user, onLogout }) => {
         handleClose();
 
         Swal.fire({
-            title: "Logout?",
-            text: "Are you sure you want to logout?",
+            title: t("logout_title"),
+            text: t("logout_warning"),
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, Logout"
+            confirmButtonText: t("logout_confirm")
         }).then((result) => {
             if (result.isConfirmed) {
 
-                if (onLogout) onLogout();   // Clear user + localStorage
+                if (onLogout) onLogout();   
 
                 Swal.fire(
-                    "Logged out!",
-                    "You have been logged out successfully.",
+                    t("logout_success"),
+                    t("logout_success_msg"),
                     "success"
                 );
 
-                navigate("/");  // Redirect to login page
+                navigate("/"); 
             }
         });
     };
@@ -76,7 +81,7 @@ const Header = ({ user, onLogout }) => {
                     py: { xs: 0.5, sm: 0 },
                 }}
             >
-                {/* Title - full width on mobile */}
+                {/* Title */}
                 <Typography
                     variant="h6"
                     component="div"
@@ -86,7 +91,7 @@ const Header = ({ user, onLogout }) => {
                         whiteSpace: { xs: "normal", sm: "nowrap" },
                     }}
                 >
-                    🐄 Bharat Pashudhan - Breed Recognition
+                    🐄 {t("app_title")}
                 </Typography>
 
                 {/* Right side actions */}
@@ -100,7 +105,8 @@ const Header = ({ user, onLogout }) => {
                         gap: { xs: 1, sm: 2 },
                     }}
                 >
-                    {/* Desktop / tablet: full Dashboard button */}
+
+                    {/* Home / Dashboard button */}
                     <Button
                         color="inherit"
                         startIcon={<Home />}
@@ -111,10 +117,10 @@ const Header = ({ user, onLogout }) => {
                             fontSize: { sm: "0.85rem" },
                         }}
                     >
-                        Dashboard
+                        {t("dashboard")}
                     </Button>
 
-                    {/* Mobile: only Home icon */}
+                    {/* Home button on mobile */}
                     <Button
                         color="inherit"
                         onClick={() => navigate('/dashboard')}
@@ -126,17 +132,11 @@ const Header = ({ user, onLogout }) => {
                             px: 1,
                         }}
                     >
-                        Dashboard
+                        {t("dashboard")}
                     </Button>
 
-
-                    <Box
-                        sx={{
-                            display: "flex",
-                            alignItems: "center",
-                        }}
-                    >
-                        {/* Name / role: hide on very small screens, show from sm+ */}
+                    {/* User profile & menu */}
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
                         <Typography
                             variant="body2"
                             sx={{
@@ -149,7 +149,7 @@ const Header = ({ user, onLogout }) => {
 
                         <IconButton
                             size="large"
-                            aria-label="account of current user"
+                            aria-label="user account"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleMenu}
@@ -177,12 +177,12 @@ const Header = ({ user, onLogout }) => {
                         >
                             <MenuItem onClick={() => { handleClose(); navigate("/profile") }}>
                                 <span className="material-icons" style={{ marginRight: 8 }}>person</span>
-                                Profile
+                                {t("profile")}
                             </MenuItem>
 
                             <MenuItem onClick={handleLogout}>
                                 <ExitToApp sx={{ mr: 1 }} />
-                                Logout
+                                {t("logout")}
                             </MenuItem>
                         </Menu>
                     </Box>

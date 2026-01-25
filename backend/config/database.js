@@ -10,10 +10,10 @@ const connectDB = async () => {
             useUnifiedTopology: true
         });
 
-        console.log(`✅ MongoDB Connected to: ${connection.connection.name}`);
+        console.log(`MongoDB Connected to: ${connection.connection.name}`);
     } catch (error) {
-        console.error("❌ Database connection error:", error.message);
-        console.log("🔁 Retrying in 5 seconds...");
+        console.error("Database connection error:", error.message);
+        console.log("Retrying in 5 seconds...");
         setTimeout(connectDB, 5000);
     }
 };
