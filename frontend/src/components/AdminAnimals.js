@@ -47,27 +47,16 @@ function AdminAnimals() {
     };
 
     return (
-        <div style={{ padding: "25px" }}>
-            <h2 style={{ color: "#2e7d32", fontWeight: "700" }}>Registered Animals</h2>
+        <div className="gov-page gov-admin-wrap">
+            <h2 className="gov-page-title">Registered Animals</h2>
 
-            {/* SEARCH BAR */}
-            <div style={{ margin: "20px 0" }}>
+            <div style={{ margin: "16px 0 20px" }}>
                 <input
                     type="text"
                     value={search}
                     onChange={(e) => handleSearch(e.target.value)}
                     placeholder="Search by Tag ID, Owner Name, Breed, Location..."
-                    style={{
-                        width: "100%",
-                        padding: "14px",
-                        fontSize: "15px",
-                        borderRadius: "10px",
-                        border: "1px solid #bbb",
-                        background: "#fafafa",
-                        transition: "0.3s",
-                    }}
-                    onFocus={(e) => (e.target.style.border = "1px solid #2e7d32")}
-                    onBlur={(e) => (e.target.style.border = "1px solid #bbb")}
+                    className="gov-search-input"
                 />
             </div>
 
@@ -85,31 +74,20 @@ function AdminAnimals() {
 
             {/* DATA TABLE */}
             {!loading && filtered.length > 0 && (
-                <div
-                    style={{
-                        overflowX: "auto",
-                        background: "white",
-                        borderRadius: "12px",
-                        boxShadow: "0 4px 14px rgba(0,0,0,0.1)",
-                        padding: "10px",
-                    }}
-                >
+                <div className="gov-table-wrap" style={{ padding: 0 }}>
                     <table
-                        style={{
-                            width: "100%",
-                            borderCollapse: "collapse",
-                            minWidth: "900px",
-                        }}
+                        className="gov-table"
+                        style={{ minWidth: "900px" }}
                     >
                         <thead>
-                            <tr style={{ backgroundColor: "#e8f5e9" }}>
-                                <th style={thStyle}>Image</th>
-                                <th style={thStyle}>Tag ID</th>
-                                <th style={thStyle}>FLW</th>
-                                <th style={thStyle}>Breed</th>
-                                <th style={thStyle}>Location</th>
-                                <th style={thStyle}>Registered By</th>
-                                <th style={thStyle}>Date</th>
+                            <tr>
+                                <th>Image</th>
+                                <th>Tag ID</th>
+                                <th>FLW</th>
+                                <th>Breed</th>
+                                <th>Location</th>
+                                <th>Registered By</th>
+                                <th>Date</th>
                             </tr>
                         </thead>
 
@@ -130,7 +108,7 @@ function AdminAnimals() {
                                     }
                                 >
                                     {/* IMAGE */}
-                                    <td style={tdStyle}>
+                                    <td>
                                         <img
                                             src={
                                                 animal.imageUrl
@@ -153,20 +131,20 @@ function AdminAnimals() {
                                         />
                                     </td>
 
-                                    <td style={tdStyle}>{animal.tagId}</td>
+                                    <td>{animal.tagId}</td>
 
-                                    <td style={tdStyle}>
+                                    <td>
                                         <strong>{animal.ownerName}</strong> <br />
                                         <small style={{ color: "#555" }}>
                                             {animal.ownerPhone}
                                         </small>
                                     </td>
 
-                                    <td style={tdStyle}>{animal.breed}</td>
-                                    <td style={tdStyle}>{animal.location}</td>
-                                    <td style={tdStyle}>{animal.registeredBy}</td>
+                                    <td>{animal.breed}</td>
+                                    <td>{animal.location}</td>
+                                    <td>{animal.registeredBy}</td>
 
-                                    <td style={tdStyle}>
+                                    <td>
                                         {new Date(animal.createdAt).toLocaleDateString()}
                                     </td>
                                 </tr>
@@ -213,19 +191,5 @@ function AdminAnimals() {
         </div>
     );
 }
-
-const thStyle = {
-    padding: "14px",
-    textAlign: "left",
-    fontWeight: "600",
-    fontSize: "15px",
-    borderBottom: "1px solid #c8e6c9",
-};
-
-const tdStyle = {
-    padding: "12px",
-    borderBottom: "1px solid #eee",
-    fontSize: "14px",
-};
 
 export default AdminAnimals;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { authAPI } from "../services/api";
-import { TextField, Button, Card, CardContent, Typography, FormControlLabel, Checkbox, MenuItem } from "@mui/material";
+import { TextField, Button, Card, CardContent, Typography, FormControlLabel, Checkbox, MenuItem, Box } from "@mui/material";
 
 function AddFLW() {
     const [form, setForm] = useState({
@@ -46,15 +46,37 @@ function AddFLW() {
     };
 
     return (
-        <div style={{ padding: "40px", display: "flex", justifyContent: "center" }}>
-            <Card style={{ width: "450px", padding: "20px" }}>
-                <CardContent>
-                    <Typography sx={{
-                            fontWeight: 700,
-                            fontSize: { xs: "1.2rem", sm: "1.1rem", md: "1.15rem" }
-                        }}>
+        <div className="gov-page" style={{ padding: "24px 16px 40px", display: "flex", justifyContent: "center" }}>
+            <Card
+                elevation={0}
+                sx={{
+                    width: "100%",
+                    maxWidth: 520,
+                    border: "1px solid #e2e8f0",
+                    borderRadius: 3,
+                    boxShadow: "0 12px 40px rgba(15, 23, 42, 0.08)",
+                    overflow: "hidden",
+                }}
+            >
+                <Box
+                    sx={{
+                        height: 4,
+                        background: "linear-gradient(90deg, #ff9933 0%, #ff9933 33%, #fff 33%, #fff 66%, #138808 66%, #138808 100%)",
+                    }}
+                />
+                <Box
+                    sx={{
+                        px: 2.5,
+                        py: 1.5,
+                        bgcolor: "#f8fafc",
+                        borderBottom: "1px solid #e2e8f0",
+                    }}
+                >
+                    <Typography sx={{ fontWeight: 800, fontSize: "1.1rem", color: "#0f172a" }}>
                         Add New Field Level Worker
                     </Typography>
+                </Box>
+                <CardContent sx={{ p: 3 }}>
 
                     <TextField
                         label="User ID"

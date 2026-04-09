@@ -7,7 +7,7 @@ import {
 
 import { Typography, Box } from "@mui/material";
 
-const COLORS = ['#2e7d32', '#ff9800', '#1976d2', '#9c27b0', '#f44336', '#795548'];
+const COLORS = ['#1a237e', '#2e7d32', '#e65100', '#3949ab', '#c62828', '#6a1b9a'];
 
 export default function AdminCharts() {
 
@@ -41,14 +41,13 @@ export default function AdminCharts() {
     };
 
     return (
-        <Box sx={{ p: { xs: 2, md: 4 } }}>
+        <Box className="gov-page" sx={{ p: { xs: 2, md: 3 } }}>
 
-            {/* ✅ PAGE TITLE */}
             <Typography
-                variant="h4"
-                sx={{ color: "#2e7d32", fontWeight: "700", mb: 3 }}
+                variant="h5"
+                sx={{ color: "#1a237e", fontWeight: "700", mb: 3, letterSpacing: '0.02em' }}
             >
-                📊 Registration Analytics
+                Registration analytics
             </Typography>
 
             {loading && (
@@ -72,7 +71,7 @@ export default function AdminCharts() {
                             <XAxis dataKey="location" />
                             <YAxis />
                             <Tooltip />
-                            <Bar dataKey="count" fill="#2e7d32" />
+                            <Bar dataKey="count" fill="#1a237e" />
                         </BarChart>
                     </ResponsiveContainer>
                 </ChartCard>
@@ -129,8 +128,9 @@ function ChartCard({ title, children }) {
             sx={{
                 backgroundColor: "#ffffff",
                 p: 2,
-                borderRadius: "12px",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+                borderRadius: 1,
+                border: '1px solid #cfd8dc',
+                boxShadow: "0 2px 10px rgba(26,35,126,0.06)",
                 minHeight: 300
             }}
         >
@@ -139,8 +139,9 @@ function ChartCard({ title, children }) {
                 variant="h6"
                 sx={{
                     mb: 2,
-                    color: "#333",
-                    fontWeight: 600
+                    color: "#1a237e",
+                    fontWeight: 700,
+                    fontSize: '1rem',
                 }}
             >
                 {title}

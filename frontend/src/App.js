@@ -21,24 +21,37 @@ import Profile from "./components/Profile";
 import Reports from "./components/Reports";
 
 import './styles/App.css';
+import './styles/gov-portal.css';
 
 const theme = createTheme({
     palette: {
-        primary: { main: '#2e7d32' },
-        secondary: { main: '#ff9800' },
-        background: { default: '#f5f5f5' },
+        primary: { main: '#1a237e', dark: '#0d1642', light: '#534bae' },
+        secondary: { main: '#e65100', light: '#ff833a', dark: '#ac1900' },
+        success: { main: '#2e7d32' },
+        background: { default: '#eef1f7', paper: '#ffffff' },
+        text: { primary: '#1a1d29', secondary: '#64748b' },
     },
+    shape: { borderRadius: 4 },
     typography: {
-        fontFamily: '"Roboto","Helvetica","Arial",sans-serif',
-        h4: {
-            fontWeight: 700,
-            fontSize: "1.8rem"
+        fontFamily: '"Roboto","Noto Sans Devanagari","Helvetica","Arial",sans-serif',
+        h4: { fontWeight: 800, fontSize: '1.65rem', color: '#0f172a' },
+        h5: { fontWeight: 800, color: '#0f172a' },
+        h6: { fontWeight: 700, color: '#0f172a' },
+        body1: { fontSize: '0.95rem' },
+    },
+    components: {
+        MuiButton: {
+            styleOverrides: {
+                containedPrimary: {
+                    background: 'linear-gradient(180deg, #283593 0%, #1a237e 100%)',
+                    boxShadow: '0 2px 6px rgba(26,35,126,0.25)',
+                },
+            },
         },
-        h6: {
-            fontWeight: 600
-        },
-        body1: {
-            fontSize: "0.95rem"
+        MuiPaper: {
+            styleOverrides: {
+                root: { backgroundImage: 'none' },
+            },
         },
     },
 });
@@ -66,7 +79,7 @@ function App() {
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <Router>
-
+                <div className="gov-portal-main">
                 {isAuthenticated && <Header user={user} onLogout={handleLogout} />}
 
                 <main className="main-content">
@@ -186,6 +199,7 @@ function App() {
 
                     </Routes>
                 </main>
+                </div>
 
             </Router>
         </ThemeProvider>

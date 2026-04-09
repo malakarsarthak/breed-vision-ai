@@ -232,13 +232,23 @@ const BreedInfo = () => {
     );
 
     return (
-        <Container maxWidth="lg" sx={{ py: 3 }}>
-            <Paper sx={{ p: 3, mb: 4 }}>
+        <Container maxWidth="lg" className="gov-page" sx={{ py: 3 }}>
+            <Paper
+                elevation={0}
+                sx={{
+                    p: 3,
+                    mb: 4,
+                    border: '1px solid #b0bec5',
+                    borderRadius: 1,
+                    borderTop: '4px solid #ff9933',
+                    boxShadow: '0 4px 18px rgba(26,35,126,0.07)',
+                }}
+            >
                 <Typography
-                    sx={{ fontWeight: 700, fontSize: { xs: "1.5rem", sm: "1.1rem", md: "1.15rem" } }}
+                    sx={{ fontWeight: 700, fontSize: { xs: "1.35rem", sm: "1.5rem" }, color: '#1a237e' }}
                     align="center"
                 >
-                    🐄 {t("breed_info_title")}
+                    {t("breed_info_title")}
                 </Typography>
 
                 <Typography variant="body1" align="center" sx={{ mt: 1 }} color="text.secondary">
@@ -271,7 +281,16 @@ const BreedInfo = () => {
             <Grid container spacing={3}>
                 {filteredBreeds.map((breed, index) => (
                     <Grid item xs={12} md={6} lg={4} key={index}>
-                        <Card sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
+                        <Card
+                            sx={{
+                                height: "100%",
+                                display: "flex",
+                                flexDirection: "column",
+                                border: '1px solid #e0e0e0',
+                                borderRadius: 1,
+                                boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+                            }}
+                        >
                             <CardMedia
                                 component="img"
                                 height="200"

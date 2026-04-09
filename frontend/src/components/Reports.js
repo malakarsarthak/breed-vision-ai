@@ -42,24 +42,26 @@ const Reports = () => {
     };
 
     return (
-        <Box sx={{ p: 3, background: "#f7f7f7", minHeight: "100vh" }}>
+        <Box className="gov-page" sx={{ p: { xs: 2, md: 3 }, minHeight: "60vh" }}>
             <Typography sx={{
                 fontWeight: 700,
-                fontSize: { xs: "2rem", sm: "1.1rem", md: "1.15rem" }
+                fontSize: { xs: "1.35rem", sm: "1.5rem" },
+                color: '#1a237e',
+                mb: 2,
             }}>
-                📊 {t("reports_dashboard")}
+                {t("reports_dashboard")}
             </Typography>
 
             <Grid container spacing={3}>
 
                 {/* DAILY REGISTRATION */}
                 <Grid item xs={12} md={6}>
-                    <Card sx={{ p: 2 }}>
+                    <Card sx={{ p: 2, border: '1px solid #cfd8dc', borderRadius: 1, boxShadow: '0 2px 10px rgba(26,35,126,0.06)' }}>
                         <Typography sx={{
                             fontWeight: 700,
                             fontSize: { xs: "1.2rem", sm: "1.1rem", md: "1.15rem" }
                         }}>
-                            📅 {t("daily_registrations")}
+                            {t("daily_registrations")}
                         </Typography>
                         <Divider sx={{ mb: 2 }} />
 
@@ -68,7 +70,7 @@ const Reports = () => {
                                 <XAxis dataKey="_id" />
                                 <YAxis />
                                 <Tooltip />
-                                <Line type="monotone" dataKey="count" stroke="#2563eb" strokeWidth={2} />
+                                <Line type="monotone" dataKey="count" stroke="#1a237e" strokeWidth={2} />
                             </LineChart>
                         </ResponsiveContainer>
                     </Card>
@@ -76,12 +78,12 @@ const Reports = () => {
 
                 {/* MONTHLY REGISTRATION */}
                 <Grid item xs={12} md={6}>
-                    <Card sx={{ p: 2 }}>
+                    <Card sx={{ p: 2, border: '1px solid #cfd8dc', borderRadius: 1, boxShadow: '0 2px 10px rgba(26,35,126,0.06)' }}>
                         <Typography sx={{
                             fontWeight: 700,
                             fontSize: { xs: "1.2rem", sm: "1.1rem", md: "1.15rem" }
                         }}>
-                            📆 {t("monthly_registrations")}
+                            {t("monthly_registrations")}
                         </Typography>
                         <Divider sx={{ mb: 2 }} />
 
@@ -90,7 +92,7 @@ const Reports = () => {
                                 <XAxis dataKey="_id" />
                                 <YAxis />
                                 <Tooltip />
-                                <Bar dataKey="count" fill="#22c55e" />
+                                <Bar dataKey="count" fill="#2e7d32" />
                             </BarChart>
                         </ResponsiveContainer>
                     </Card>
@@ -98,12 +100,12 @@ const Reports = () => {
 
                 {/* BREED-WISE DISTRIBUTION */}
                 <Grid item xs={12}>
-                    <Card sx={{ p: 2 }}>
+                    <Card sx={{ p: 2, border: '1px solid #cfd8dc', borderRadius: 1, boxShadow: '0 2px 10px rgba(26,35,126,0.06)' }}>
                         <Typography sx={{
                             fontWeight: 700,
                             fontSize: { xs: "1.2rem", sm: "1.1rem", md: "1.15rem" }
                         }}>
-                            🐮 {t("breed_wise")}
+                            {t("breed_wise")}
                         </Typography>
                         <Divider sx={{ mb: 2 }} />
 
@@ -112,7 +114,7 @@ const Reports = () => {
                                 <XAxis dataKey="_id" tick={{ fontSize: 10 }} interval={0} angle={-30} textAnchor="end" />
                                 <YAxis />
                                 <Tooltip />
-                                <Bar dataKey="count" fill="#7c3aed" />
+                                <Bar dataKey="count" fill="#3949ab" />
                             </BarChart>
                         </ResponsiveContainer>
                     </Card>
@@ -120,12 +122,12 @@ const Reports = () => {
 
                 {/* CATTLE VS BUFFALO */}
                 <Grid item xs={12} md={6}>
-                    <Card sx={{ p: 2 }}>
+                    <Card sx={{ p: 2, border: '1px solid #cfd8dc', borderRadius: 1, boxShadow: '0 2px 10px rgba(26,35,126,0.06)' }}>
                         <Typography sx={{
                             fontWeight: 700,
                             fontSize: { xs: "1.2rem", sm: "1.1rem", md: "1.15rem" }
                         }}>
-                            🐄 {t("cattle_vs_buffalo")}
+                            {t("cattle_vs_buffalo")}
                         </Typography>
                         <Divider sx={{ mb: 2 }} />
 

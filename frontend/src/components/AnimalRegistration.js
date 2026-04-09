@@ -258,10 +258,28 @@ export default function AnimalRegistration({ user }) {
 
   // UI START
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
-      <Paper sx={{ p: 3, borderRadius: 3 }}>
+    <Container maxWidth="md" className="gov-page" sx={{ py: 3 }}>
+      <Paper
+        elevation={0}
+        sx={{
+          p: { xs: 2, sm: 3 },
+          borderRadius: 1,
+          border: '1px solid #b0bec5',
+          boxShadow: '0 4px 20px rgba(26, 35, 126, 0.08)',
+          borderTop: '4px solid #ff9933',
+        }}
+      >
 
-        <Typography align="center" sx={{ fontWeight: 700, mb: 3, fontSize: "1.8rem" }}>
+        <Typography
+          align="center"
+          sx={{
+            fontWeight: 700,
+            mb: 3,
+            fontSize: { xs: '1.35rem', sm: '1.5rem' },
+            color: '#1a237e',
+            letterSpacing: '0.02em',
+          }}
+        >
           Animal Registration
         </Typography>
 

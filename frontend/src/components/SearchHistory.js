@@ -4,7 +4,6 @@ import {
     Typography,
     Grid,
     Card,
-    CardMedia,
     CardContent,
     TextField,
     Button,
@@ -74,8 +73,8 @@ const SearchHistory = ({ user }) => {
                 text: t("delete_warning"),
                 icon: "warning",
                 showCancelButton: true,
-                confirmButtonColor: "#2e7d32",
-                cancelButtonColor: "#b71c1c",
+                confirmButtonColor: "#1a237e",
+                cancelButtonColor: "#c62828",
                 confirmButtonText: t("delete_button")
             });
 
@@ -110,8 +109,8 @@ const SearchHistory = ({ user }) => {
                 text: t("delete_warning"),
                 icon: "warning",
                 showCancelButton: true,
-                confirmButtonColor: "#2e7d32",
-                cancelButtonColor: "#b71c1c",
+                confirmButtonColor: "#1a237e",
+                cancelButtonColor: "#c62828",
                 confirmButtonText: t("delete_all_button")
             });
 
@@ -131,11 +130,15 @@ const SearchHistory = ({ user }) => {
     };
 
     return (
-        <Container sx={{ mt: 4 }}>
-            <Typography sx={{
-                fontWeight: 700,
-                fontSize: { xs: "1.5rem", sm: "1.1rem", md: "1.15rem" }
-            }}>
+        <Container className="gov-page" sx={{ mt: 0, pt: 2 }}>
+            <Typography
+                sx={{
+                    fontWeight: 700,
+                    fontSize: { xs: '1.35rem', sm: '1.5rem' },
+                    color: '#1a237e',
+                    letterSpacing: '0.02em',
+                }}
+            >
                 {t("search_history_title")}
             </Typography>
 
@@ -207,21 +210,45 @@ const SearchHistory = ({ user }) => {
                 ) : (
                     history.map((animal) => (
                         <Grid item xs={12} sm={6} key={animal._id}>
-                            <Card sx={{ borderRadius: 2, boxShadow: 3 }}>
+                            <Card
+                                sx={{
+                                    borderRadius: 1,
+                                    border: '1px solid #cfd8dc',
+                                    boxShadow: '0 2px 10px rgba(26,35,126,0.06)',
+                                    overflow: 'hidden',
+                                }}
+                            >
 
-                                {/* IMAGE */}
+                                {/* IMAGE — full photo visible, no crop (preserves upload aspect ratio) */}
                                 {animal.imageUrl && (
-                                    <CardMedia
-                                        component="img"
+                                    <Box
                                         sx={{
-                                            width: "100%",
-                                            height: { xs: 180, sm: 220 },
-                                            objectFit: "cover",
-                                            borderRadius: "6px"
+                                            width: '100%',
+                                            bgcolor: '#f1f5f9',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            py: 1.5,
+                                            px: 1,
+                                            minHeight: 140,
+                                            maxHeight: { xs: 320, sm: 380 },
+                                            borderBottom: '1px solid #e2e8f0',
                                         }}
-                                        image={`http://127.0.0.1:3001${animal.imageUrl}`}
-                                        alt="Animal"
-                                    />
+                                    >
+                                        <Box
+                                            component="img"
+                                            src={`http://127.0.0.1:3001${animal.imageUrl}`}
+                                            alt=""
+                                            sx={{
+                                                maxWidth: '100%',
+                                                maxHeight: { xs: 300, sm: 360 },
+                                                width: 'auto',
+                                                height: 'auto',
+                                                objectFit: 'contain',
+                                                display: 'block',
+                                            }}
+                                        />
+                                    </Box>
                                 )}
 
                                 <CardContent>
