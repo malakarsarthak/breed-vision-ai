@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-const BASE_URL = "http://127.0.0.1:3001";
-
+const BASE_URL =
+  process.env.REACT_APP_API_BASE_URL ||
+  "https://breed-vision-ai-backend.onrender.com";
 function AdminAnimals() {
     const [animals, setAnimals] = useState([]);
     const [filtered, setFiltered] = useState([]);

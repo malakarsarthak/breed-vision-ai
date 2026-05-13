@@ -20,7 +20,7 @@ function AdminDashboard() {
 
     const fetchFLWs = async () => {
         try {
-            const response = await fetch('http://127.0.0.1:3001/api/users/flw');
+            const BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://breed-vision-ai-backend.onrender.com";
             const data = await response.json();
             if (data.success) setFlws(data.users);
         } catch (error) {

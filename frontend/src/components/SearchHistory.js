@@ -19,7 +19,9 @@ import { animalAPI } from '../services/api';
 
 // 🔥 i18n
 import { useTranslation } from "react-i18next";
-
+const BASE_URL =
+  process.env.REACT_APP_API_BASE_URL ||
+  "https://breed-vision-ai-backend.onrender.com";
 const SearchHistory = ({ user }) => {
     const { t } = useTranslation();
 
@@ -237,7 +239,7 @@ const SearchHistory = ({ user }) => {
                                     >
                                         <Box
                                             component="img"
-                                            src={`http://127.0.0.1:3001${animal.imageUrl}`}
+                                           src={`${BASE_URL}${animal.imageUrl}`}
                                             alt=""
                                             sx={{
                                                 maxWidth: '100%',
