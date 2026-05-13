@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-const BASE_URL =
-  process.env.REACT_APP_API_BASE_URL ||
-  "https://breed-vision-ai-backend.onrender.com";
+const BASE_URL =process.env.REACT_APP_API_BASE_URL ||"https://breed-vision-ai-backend.onrender.com";
+
 function AdminAnimals() {
     const [animals, setAnimals] = useState([]);
     const [filtered, setFiltered] = useState([]);
@@ -16,7 +15,7 @@ function AdminAnimals() {
     // Fetch All Animals
     const fetchAnimals = async () => {
         try {
-            const res = await fetch(`${BASE_URL}/api/animals/all`);
+            const res = await fetch(`${BASE_URL}/animals/all`);
             const data = await res.json();
 
             if (data.success) {

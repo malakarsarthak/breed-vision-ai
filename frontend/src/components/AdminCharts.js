@@ -16,8 +16,7 @@ export default function AdminCharts() {
     const [dailyData, setDailyData] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const base = process.env.REACT_APP_API_BASE_URL || "http://127.0.0.1:3001/api";
-
+    const base = process.env.REACT_APP_API_BASE_URL;
     useEffect(() => {
         loadCharts();
     }, []);
