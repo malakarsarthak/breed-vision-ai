@@ -31,7 +31,7 @@ export function register(config) {
 }
 
 function registerValidSW(swUrl, config) {
-    navigator.serviceWorker
+    navigator.serviceWorker 
         .register(swUrl)
         .then((registration) => {
             console.log('Service Worker registered:', registration);
