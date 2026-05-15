@@ -5,6 +5,7 @@ from PIL import Image
 import io
 import base64
 import tensorflow as tf
+tf.config.set_visible_devices([], 'GPU')  # force CPU
 from tensorflow.keras.models import load_model
 from tensorflow.keras.applications.efficientnet_v2 import preprocess_input
 
@@ -25,13 +26,17 @@ app.add_middleware(
 # DOWNLOAD MODEL FROM DRIVE
 # =========================
 
-MODEL_FILE_ID = "16qFtoGtclsOmwk2ixOGqjnIWyO4OC6hk"
+import os
+import gdown
 
-MODEL_PATH = "epoch_04.keras"
+MODEL_PATH = "model/epoch_04.keras"
 
 if not os.path.exists(MODEL_PATH):
+    os.makedirs("model", exist_ok=True)
+    
+    url = "https://drive.google.com/uc?id=16qFtoGtclsOmwk2ixOGqjnIWyO4OC6hk"
+    
     print("Downloading model from Google Drive...")
-    url = f"https://drive.google.com/uc?id={MODEL_FILE_ID}"
     gdown.download(url, MODEL_PATH, quiet=False)
 
 print("Loading model...")
