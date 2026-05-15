@@ -2,10 +2,14 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import numpy as np
 from PIL import Image
-import io, base64
+import io
+import base64
 import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.applications.efficientnet_v2 import preprocess_input
+
+import os
+import gdown
 
 app = FastAPI()
 
@@ -17,19 +21,33 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# MODEL_PATH = "model/best_effv2s_fulltrain.keras"
-MODEL_PATH = "model/epoch_04.keras"
+# =========================
+# DOWNLOAD MODEL FROM DRIVE
+# =========================
 
+MODEL_FILE_ID = "16qFtoGtclsOmwk2ixOGqjnIWyO4OC6hk"
+
+MODEL_PATH = "epoch_04.keras"
+
+if not os.path.exists(MODEL_PATH):
+    print("Downloading model from Google Drive...")
+    url = f"https://drive.google.com/uc?id={MODEL_FILE_ID}"
+    gdown.download(url, MODEL_PATH, quiet=False)
+
+print("Loading model...")
 model = load_model(MODEL_PATH)
-model.summary()
 
-# --------------------------------------
-# LABELS: order must match your training
-# --------------------------------------
+print("Model loaded successfully")
+
+# =========================
+# LABELS
+# =========================
+
 LABELS = [line.strip() for line in open("labels.txt").read().splitlines()]
 
-# BREED -> SPECIES MAPPING
-# (keys MUST match strings in labels.txt)
+# =========================
+# BREED TO SPECIES
+# =========================
 
 BREED_TO_SPECIES = {
     "Aryshire": "cow",
@@ -48,7 +66,6 @@ BREED_TO_SPECIES = {
     "HFCross": "cow",
     "Hallikar": "cow",
     "Holstein_friesian": "cow",
-
     "Jafrabadi": "buffalo",
     "JerseyCross": "cow",
     "Kankrej": "cow",
@@ -85,62 +102,81 @@ BREED_TO_SPECIES = {
     "vechur": "cow",
 }
 
-CONFIDENCE_THRESHOLD = 0.5  # you can tune this
+CONFIDENCE_THRESHOLD = 0.5
 
+
+@app.get("/")
+def home():
+    return {"message": "Breed AI Service Running"}
 
 @app.post("/predict")
 async def predict(data: dict):
     try:
+
         image_base64 = data.get("image")
+
         if not image_base64:
-            return {"success": False, "error": "Image missing"}
+            return {
+                "success": False,
+                "error": "Image missing"
+            }
 
-        # Strip base64 prefix if present (e.g. "data:image/jpeg;base64,...")
         if "," in image_base64:
-            base64_data = image_base64.split(",")[1]
-        else:
-            base64_data = image_base64
+            image_base64 = image_base64.split(",")[1]
 
-        image_bytes = base64.b64decode(base64_data)
+        image_bytes = base64.b64decode(image_base64)
 
         img = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+
         img = img.resize((224, 224))
+
         img_array = np.array(img)
+
         img_array = np.expand_dims(img_array, axis=0)
+
         img_array = preprocess_input(img_array)
 
-        preds = model.predict(img_array)[0]  # shape: (num_classes,)
+        preds = model.predict(img_array)[0]
 
-        # Top-3 predictions (highest -> lowest)
         top3_idx = preds.argsort()[-3:][::-1]
-        top3_conf = preds[top3_idx]
 
-        top3 = [
-            {
-                "breed": LABELS[int(idx)],
-                "confidence": float(conf),
-                "species": BREED_TO_SPECIES.get(LABELS[int(idx)], "unknown"),
-            }
-            for idx, conf in zip(top3_idx, top3_conf)
-        ]
+        top3 = []
 
-        # Top-1 prediction
+        for idx in top3_idx:
+
+            breed = LABELS[int(idx)]
+
+            confidence = float(preds[idx])
+
+            species = BREED_TO_SPECIES.get(breed, "unknown")
+
+            top3.append({
+                "breed": breed,
+                "confidence": confidence,
+                "species": species
+            })
+
         best_idx = int(top3_idx[0])
-        best_conf = float(top3_conf[0])
+
         best_breed = LABELS[best_idx]
+
+        best_conf = float(preds[best_idx])
+
         best_species = BREED_TO_SPECIES.get(best_breed, "unknown")
 
-        # If confidence is very low, you can flag as unknown
         if best_conf < CONFIDENCE_THRESHOLD:
             best_species = "unknown"
 
         return {
             "success": True,
-            "species": best_species,          # cow / buffalo / unknown
-            "best_breed": best_breed,         # e.g. "Gir_Cow"
+            "species": best_species,
+            "best_breed": best_breed,
             "best_confidence": best_conf,
-            "top3": top3,                     # list of top-3 with species
+            "top3": top3
         }
 
     except Exception as e:
-        return {"success": False, "error": str(e)}
+        return {
+            "success": False,
+            "error": str(e)
+        }
